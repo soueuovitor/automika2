@@ -99,6 +99,8 @@ app.use(function(request, response, next){
 
 
 app.use('/main', require('./controllers/main.route'));
+app.use('/main_veiculos', require('./controllers/main_veiculos.route'));
+
 
 app.use('/', require('./controllers/login.route'));
 app.use('/public', express.static('public'));

@@ -162,12 +162,10 @@ hr {
 	padding: 100px 0;
 	text-align: center;
 	color: #fff;
-	background: url(../img/intro-bg.jpg) no-repeat center center fixed;
+	background: url(../img/logotrans.png) no-repeat center center fixed;
+	background-size: 1000px;
 	background-color: #000;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
+
 }
 #intro .intro-body {
 	display: table-cell;
@@ -185,6 +183,7 @@ hr {
 }
 #intro .intro-body .intro-text {
 	font-size: 18px;
+	margin-top: 450px;
 }
 
 @media(min-width:768px) {
@@ -258,16 +257,25 @@ hr {
 }
 /* veiculos_header Section */
 #veiculos_header {
-	padding: 140px 0;
-	background: url(../img/services-bg.jpg);
+	
+	width: 100%;
+	height: auto;
+	padding: 150px 0;
+	text-align: center;
+	color: #fff;
+	background: url(../img/logot.jpg) no-repeat center	 ;
+	background-color: #000;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
-	background-attachment: fixed;
+
 }
 #veiculos_header .service {
 	padding: 20px 10px;
 }
 #veiculos_header h2 {
-	color: #f6f6f6;
+	color: black;
 }
 #veiculos_header h3 {
 	font-size: 20px;

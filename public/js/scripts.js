@@ -66,8 +66,7 @@
     /*  Auto date in footer and refresh
     --------------------------------------*/
 
-    document.getElementById("date-time").innerHTML = Date();
-
+   
     $('.page-refresh').on("click", function () {
         location.reload();
     });
@@ -172,14 +171,24 @@
     /*  pace Loader
     -------------*/
 
-    paceOptions = {
-        elements: true
-    };
+
+
+    $("#marca").keyup(function() {
+        var e = $("#marca").val()
+        $('.card').show();
+            var filter = e; // get the value of the input, which we filter on
+            $('.col-md-3').find(".card-title:not(:contains(" + filter + "))").parent().parent().parent().slideUp();
+            $('.col-md-3').find(".card-title:contains(" + filter + ")").parent().parent().parent().slideDown();
+        });
     
-
-
-
-
+        $("#modelo").keyup(function() {
+            var e = $("#modelo").val()
+            $('.card').show();
+                var filter = e; // get the value of the input, which we filter on
+                $('.col-md-3').find(".card-text:not(:contains(" + filter + "))").parent().parent().parent().slideUp();
+                $('.col-md-3').find(".card-text:contains(" + filter + ")").parent().parent().parent().slideDown();
+            });
+        
 })(jQuery);
 
 

@@ -1,64 +1,90 @@
 <% include partials/header %>
-<div class="content-wrap">
-    <div class="main">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-8 p-r-0 title-margin-right">
-                    <div class="page-header">
-                        <div class="page-title">
-                            <h1>Listagem <small>dos Clientes</small></h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /# row -->
-            <section id="main-content">
-                <div class="row">
-                    <div class="col-md-12 col-sm-6 col-xs-12">
-                      <div class="x_panel">
-                        <div class="x_content">
-                          <table class="table table-striped" id='tabela'>
-                            <thead>
-                              <tr>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                
-                                <th>telemovel</th>
-                                <th>NIF</th>
-                               
+                <!-- END X-NAVIGATION VERTICAL -->                     
                 
-                                
-                                
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <% for (var c of clientes ) { %>
-                                <tr data-toggle="modal"data-target="#<%= c.idclientes %>">
-                                  <td><%= c.nome %></td>
-                                  <td><%= c.email %></td>
-                                 
-                                  <td><%= c.telemovel %></td>
-                                  <td><%= c.nif %></td>
-                                
-                                
-                                </tr>
-                                
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Tabelas</a></li>
+                    <li class="active">Clientes</li>
+                </ul>
+                <!-- END BREADCRUMB -->
+                
+                <!-- PAGE TITLE -->
+                <div class="page-title">                    
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Listagem de Clientes</h2>
+                </div>
+                <!-- END PAGE TITLE -->                
+                
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
+                
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                            <!-- START DATATABLE EXPORT -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">DataTable Export</h3>
+                                    <div class="btn-group pull-right">
+                                        <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Exportar Tabela</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false'});"><img src='./public/img/icons/json.png' width="24"/> JSON</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});"><img src='./public/img/icons/json.png' width="24"/> JSON (ignoreColumn)</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'true'});"><img src='./public/img/icons/json.png' width="24"/> JSON (with Escape)</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'xml',escape:'false'});"><img src='./public/img/icons/xml.png' width="24"/> XML</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'sql'});"><img src='./public/img/icons/sql.png' width="24"/> SQL</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'csv',escape:'false'});"><img src='./public/img/icons/csv.png' width="24"/> CSV</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'txt',escape:'false'});"><img src='./public/img/icons/txt.png' width="24"/> TXT</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'excel',escape:'false'});"><img src='./public/img/icons/xls.png' width="24"/> XLS</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'doc',escape:'false'});"><img src='./public/img/icons/word.png' width="24"/> Word</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'powerpoint',escape:'false'});"><img src='./public/img/icons/ppt.png' width="24"/> PowerPoint</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'png',escape:'false'});"><img src='./public/img/icons/png.png' width="24"/> PNG</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'pdf',escape:'false'});"><img src='./public/img/icons/pdf.png' width="24"/> PDF</a></li>
+                                        </ul>
+                                    </div>                                    
+                                    
+                                </div>
+                                <div class="panel-body">
+                                    <table id="customers2" class="table datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Email</th>
+                                                <th>Telefone</th>
+                                                <th>NIF</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										<% for (var c of clientes ) { %>
+											<tr data-toggle="modal"data-target="#<%= c.idclientes %>">
+											<td><%= c.nome %></td>
+											<td><%= c.email %></td>
+											<td><%= c.telemovel %></td>
+											<td><%= c.nif %></td>
+                                            </tr>
+										<%} %>
+                                        </tbody>
+                                    </table>                                    
+                                    
+                                </div>
+                            </div>
+                            <!-- END DATATABLE EXPORT -->                            
 
-                                <%} %>
-                                
-                            </tbody>
-                          </table>
-                           
                         </div>
-                      </div>
                     </div>
-                  </div>
-            <!-- /# row -->
-        </section>
-    </div>
-</div>
-</div>
 
+                </div>         
+                <!-- END PAGE CONTENT WRAPPER -->
+            </div>            
+            <!-- END PAGE CONTENT -->
+        </div>
+		
 <% for (var c of clientes ) { %>
 <script>
   var slideIndex<%= c.idclientes %> = 1;
@@ -122,7 +148,7 @@ x<%= c.idclientes %> [slideIndex<%= c.idclientes %> - 1].style.display = "block"
     <li class="list-group-item">
     Cartão de Cidadão: <%= c.cc %> </li>
     <li class="list-group-item">
-    Data de Nascimento: <%= c.data_nascimento.toLocaleDateString('en-US') %> </li>
+    Data de Nascimento: <%= c.data_nascimento %> </li>
     <button class="btn btn-primary" type="button" onclick="window.open('/clientes','_self')">Editar</button>
     
 </ul>
@@ -136,6 +162,15 @@ x<%= c.idclientes %> [slideIndex<%= c.idclientes %> - 1].style.display = "block"
 </div>
 </div>
 </div>
-<%} %>
+<%} %>		
+		
+		
+		
+        <!-- END PAGE CONTAINER -->    
 
-<% include partials/footer %>
+<% include partials/footer%>
+
+
+
+
+

@@ -27,4 +27,4 @@ adicionar data inspeção na DB carros
 Adicionar status no carro ( vendido / por vender / a consignação)
 
 - Vendas
-Ao gravar uma venda imprime um pdf com um template a designar
+Ao gravar uma venda imprime um pdf com um template a designar--

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=yes">
+    <title>AutoMika</title>
+
+    <link href="/public/css/stylelogin.css" rel="stylesheet">
+    <link href="/public/css/custom.min.css" rel="stylesheet">
+    
+  </head>
+  
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <div id="modal">
+            <div class="modalconent">
+            <form action="/" method="post" style="text-align: center; margin-top: 130px;">
+              <h2 style="font-size: 40px">Login</h2>
+
+              <div>
+                <% if (errors.length) { %>  
+                  <div class="alert alert-danger">
+                    <ul>
+                    <% for (var e of errors) { %>
+                      <li><%= e.msg %></li>
+                    <% }%>
+                    </ul>
+                  </div>	
+                <% } %>	
+              </div> 
+			  
+              <div>
+                <input type="text" class="form-control" id="username" placeholder="Inserir Username" name="username" required="" />
+              </div>
+              <div>
+                <input type="password" class="form-control" id="password" placeholder="Inserir Password" name="password" required="" />
+              </div>
+              <div>
+                <button class="btn btn-default submit" type="submit">Log in</button>
+              </div>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    
+
+  <script>
+  window.onload = function () {
+    document.getElementById('button').onclick = function () {
+        document.getElementById('modal').style.display = "none"
+    };
+};</script>
+  </body>
+</html>

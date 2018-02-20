@@ -10,6 +10,7 @@
 
 - segurança
 
+<<<<<<< HEAD
 - Verificar n cc na BD
 
 ___________________________________________________________
@@ -28,3 +29,6 @@ Adicionar status no carro ( vendido / por vender / a consignação)
 
 - Vendas
 Ao gravar uma venda imprime um pdf com um template a designar--.
+=======
+
+>>>>>>> 6c11ffc9837c365afa6336b9da1d13ac514f2bff

@@ -7,7 +7,23 @@ module.exports = {
 			
 		});
 	},
+list(callback) {
+		var sql = 'SELECT * from veiculos';
+		global.connection.query(sql, function (error, rows, fields) {
+			if (error) throw error;
+			callback(rows);
+			
+		});
+	},
 
+	filtraMarca(marca, callback) {
+		var sql = 'SELECT * from veiculos WHERE marca=?';
+		global.connection.query(sql, [marca], function (error, rows, fields) {
+			if (error) throw error;
+			callback(rows);
+			
+		});
+	},
 	dropdown(callback) {
 		var sql = 'SELECT matricula from veiculos';
 		global.connection.query(sql, function(error, rows, fields){

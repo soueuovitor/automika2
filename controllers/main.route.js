@@ -13,5 +13,17 @@ router.get('/', function(request, response){
 })
 
 });
+router.get('/veiculos', function(request, response){
+	//console.log(request.isAuthenticated());
+	model.list(function (veiculos) {
+
+	response.set("Content-Type", "text/html");
+	response.render('./front-end/main_veiculos', {
+		data: veiculos
+	})
+})
+
+});
+
 
 module.exports = router;

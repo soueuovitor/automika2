@@ -100,6 +100,7 @@ app.use(function(request, response, next){
 
 app.use('/main', require('./controllers/main.route'));
 
+
 app.use('/', require('./controllers/login.route'));
 app.use('/public', express.static('public'));
 app.use('/index', require('./controllers/index.route'));

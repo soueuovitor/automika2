@@ -120,7 +120,7 @@ router.post('/create', function (request, response) {
 
 		var num_fotos = files.logo.length;
 
-		if (num_fotos =< 1){
+		if (num_fotos <= 1){
 
 			
 				var olpath = files.logo.path;

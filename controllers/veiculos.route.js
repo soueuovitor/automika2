@@ -31,7 +31,7 @@ router.get('/:marca', function (request, response) {
 
 
 
-router.get('/createveiculos', function (request, response) {
+router.get('/create', function (request, response) {
 	response.set("Content-Type", "text/html");
 	response.render('veiculos-item', {
 		isNew: true,

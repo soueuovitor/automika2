@@ -115,9 +115,20 @@ router.post('/create', function (request, response) {
 	form.parse(request, function (err, fields, files) {
 		var i = 0;
 		var paths = [];
-
+			
+			
 
 		var num_fotos = files.logo.length;
+
+		if (num_fotos =< 1){
+
+			
+				var olpath = files.logo.path;
+				var newpath = './public/img/' + fields.chassi+ '-1.png';
+					pics(oldpath, newpath);
+		}else{
+
+
 		for (var c of files.logo) {
 
 			var oldpath = c.path;
@@ -132,7 +143,7 @@ router.post('/create', function (request, response) {
 
 		}
 
-
+		}
 
 		function pics(oldpath, newpath) {
 

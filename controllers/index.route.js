@@ -3,6 +3,8 @@ const router = express.Router();
 
 router.get('/',global.secure('admin'), function(request, response){
 	console.log(request.user);
+
+	
 	//console.log(request.isAuthenticated());
 	response.set("Content-Type", "text/html");
 	response.render('./index', {})

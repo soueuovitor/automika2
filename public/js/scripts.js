@@ -184,15 +184,15 @@
    
         });
 
-alert('fuck')
         $("#modelo").keyup(function() {     
             
-            var e = $("#modelo").val()
-            var modelo = $("#marca").val();
+            var modelo = $("#modelo").val()
+            var marca = $("#marca").val();
             $('.card').show();
-                var filter = e; // get the value of the input, which we filter on
-                $('.col-md-3').find(".card-text:not(:contains(" + filter + "))").parent().parent().parent().slideUp();
-                $('.col-md-3').find(".card-text:contains(" + filter + ")")||$('.col-md-3').find(".card-text:contains(" + modelo + ")").parent().parent().parent().slideDown();
+              // get the value of the input, which we filter on
+                $('.col-md-3').find(".card-text:not(:contains(" + modelo + "))").parent().parent().parent().slideUp();
+                $('.col-md-3').find(".card-text:contains(" + modelo + ")")||$('.col-md-3').find(".card-text:contains(" + marca + ")").parent().parent().parent().slideDown();
+
             });
         
 })(jQuery);

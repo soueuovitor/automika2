@@ -23,11 +23,23 @@ router.get('/',global.secure('admin'), function(request, response){
 //Veiculos-----------------
 
 modelVeiculos.list(function (veiculos) {
+// contar total de veiculos dos varios tipos- inicio
+var veiStock = 0;
+var veiVendidos = 0;
+for(i = 0; i <  veiculos.length; i++){
+	if (veiculos.ativo = 1){
+		veiStock = veiStock + 1;
+	}else{
+		veiVendidos = veiVendidos + 1;
+	}
+}
+
+// contar total de veiculos dos varios tipos- fim
 	var marca1 = 0;
 	var marca2 = 0;
 	for(var v of veiculos){
 		console.log(v.marca);
-		//Contar os carros de cada marca- inicio
+		//Contar os veiculos de cada marca- inicio
 		if (v.marca == "qwertyuiop+" ){
 			
 			marca1 = marca1 + 1;
@@ -35,9 +47,9 @@ modelVeiculos.list(function (veiculos) {
 			marca2 = marca2 + 1;
 		}
 	}
-	//Contar os carros de cada marca- fim
+	//Contar os veiculos de cada marca- fim
 
-	//
+	
 
 		
 
@@ -49,6 +61,8 @@ modelVeiculos.list(function (veiculos) {
 		numeroClientes : numeroClientes,
 		clientesAtivo : clientesAtivo,
 		fClientes : fClientes,
+		veiStock : veiStock,
+		veiVendidos : veiVendidos,
 		marca1 : marca1,
 		marca2 : marca2, 
 	})

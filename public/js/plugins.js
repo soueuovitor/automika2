@@ -463,8 +463,8 @@ $(function() {
             
             if($(".plugin-date").length > 0){
                 
-                var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-                var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                var days = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sabado'];
+                var months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
                         
                 var now     = new Date();
                 var day     = days[now.getDay()];

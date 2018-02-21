@@ -10,9 +10,24 @@
                 
                 <!-- Start Scripts --> 
                 <script>
-                                  
+
+                    function marcaA(){
+                        return <%= marca1 %>;
+                    }
+                    function marcaB(){
+                        return <%= marca2 %>;
+                    }
+                    function start(){
+                          marcaA();
+                          marcaB();
+                     
+                         
+                            
+                        }
+                        window.onload = start;
                 
                 </script>
+                
                 <!-- END Scripts -->     
 
 
@@ -54,9 +69,11 @@
                                     <span class="fa fa-envelope"></span>
                                 </div>                             
                                 <div class="widget-data">
-                                    <div class="widget-int num-count">48</div>
-                                    <div class="widget-title">New messages</div>
+                                    </br>
+                                        <div class="widget-title">New messages</div>
                                     <div class="widget-subtitle">In your mailbox</div>
+                                    <div class="widget-int num-count">48</div>
+                                   
                                 </div>      
                                 <div class="widget-controls">                                
                                     <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -88,38 +105,113 @@
                             
                             <!-- START WIDGET CLOCK -->
                             <div class="widget widget-info widget-padding-sm">
+                            </br>
                                 <div class="widget-big-int plugin-clock">00:00</div>                            
                                 <div class="widget-subtitle plugin-date">Loading...</div>
-                                <div class="widget-controls">                                
-                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="left" title="Remove Widget"><span class="fa fa-times"></span></a>
-                                </div>                            
-                                <div class="widget-buttons widget-c3">
-                                    <div class="col">
-                                        <a href="#"><span class="fa fa-clock-o"></span></a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#"><span class="fa fa-bell"></span></a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#"><span class="fa fa-calendar"></span></a>
-                                    </div>
-                                </div>                            
+                                                            
+                                                           
                             </div>                        
                             <!-- END WIDGET CLOCK -->
                             
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            
+                            <!-- START WIDGET SLIDER -->
+                            <div class="widget widget-default widget-carousel">
+                                <div class="owl-carousel" id="owl-example">
+                                    <div>              
+                                            <div class="widget-title">Total</div>
+                                            <div class="widget-subtitle">Clientes</div>
+                                        <div class="widget-int"> <%= numeroClientes %></div>
+                                    </div>
+                                    <div>                                    
+                                        <div class="widget-title">Total</div>
+                                        <div class="widget-subtitle">Futuros Clientes</div>
+                                        <div class="widget-int"><%= fClientes %></div>
+                                    </div>
+                                    <div>                                    
+                                        <div class="widget-title">Total</div>
+                                        <div class="widget-subtitle">Clientes Ativos</div>
+                                        <div class="widget-int"><%= clientesAtivo %></div>
+                                    </div>
+                                </div>                                                        
+                            </div>         
+                            <!-- END WIDGET SLIDER -->
+                            
+                        </div>
+                        <div class="col-md-3">
+                            
+                            <!-- START WIDGET MESSAGES -->
+                            <div class="widget widget-default widget-item-icon" onclick="location.href='pages-messages.html';">
+                                <div class="widget-item-left">
+                                    <span class="fa fa-envelope"></span>
+                                </div>                             
+                                <div class="widget-data">
+                                
+                                    <div class="widget-int num-count">48</div>
+                                    <div class="widget-title">New messages</div>
+                                    <div class="widget-subtitle">In your mailbox</div>
+                                </div>      
+                                <div class="widget-controls">                                
+                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+                                </div>
+                            </div>                            
+                            <!-- END WIDGET MESSAGES -->
+                            
+                        </div>
+                        <div class="col-md-3">
+                            
+                            <!-- START WIDGET MESSAGES -->
+                            <div class="widget widget-default widget-item-icon" onclick="location.href='pages-messages.html';">
+                                <div class="widget-item-left">
+                                    <span class="fa fa-envelope"></span>
+                                </div>                             
+                                <div class="widget-data">
+                                    <div class="widget-int num-count">48</div>
+                                    <div class="widget-title">New messages</div>
+                                    <div class="widget-subtitle">In your mailbox</div>
+                                </div>      
+                                <div class="widget-controls">                                
+                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+                                </div>
+                            </div>                            
+                            <!-- END WIDGET MESSAGES -->
+                            
+                        </div>
+                        <div class="col-md-3">
+                            
+                            <!-- START WIDGET MESSAGES -->
+                            <div class="widget widget-default widget-item-icon" onclick="location.href='pages-messages.html';">
+                                <div class="widget-item-left">
+                                    <span class="fa fa-envelope"></span>
+                                </div>                             
+                                <div class="widget-data">
+                                    <div class="widget-int num-count">48</div>
+                                    <div class="widget-title">New messages</div>
+                                    <div class="widget-subtitle">In your mailbox</div>
+                                </div>      
+                                <div class="widget-controls">                                
+                                    <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+                                </div>
+                            </div>                            
+                            <!-- END WIDGET MESSAGES -->
+                            
+                        </div>
+                        
+                    </div>
                     <!-- END WIDGETS -->                    
                     
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             
                             <!-- START USERS ACTIVITY BLOCK -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="panel-title-box">
-                                        <h3>Users Activity</h3>
-                                        <span>Users vs returning</span>
+                                        <h3>Veiculos</h3>
+                                        <span>Marcas</span>
                                     </div>                                    
                                     <ul class="panel-controls" style="margin-top: 2px;">
                                         <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
@@ -134,12 +226,14 @@
                                     </ul>                                    
                                 </div>                                
                                 <div class="panel-body padding-0">
-                                    <div class="chart-holder" id="dashboard-bar-1" style="height: 200px;"></div>
+                                    <div class="chart-holder" id="grafico-marcas" style="height: 200px;"></div>
                                 </div>                                    
                             </div>
                             <!-- END USERS ACTIVITY BLOCK -->
                             
                         </div>
+                        </div>
+                        <div class="row">
                         <div class="col-md-4">
                             
                             <!-- START VISITORS BLOCK -->

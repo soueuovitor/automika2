@@ -56,30 +56,53 @@ router.post('/createclientes', function(request, response) {
 	var i = 0;
 	var paths = [];
 
-	
 	var num_fotos_cliente = files.fotocliente.length;
-		for( var c of files.fotocliente){
+		console.log( num_fotos_cliente);
+		if (num_fotos_cliente == undefined){
+
+			var olpath = files.fotocliente.path;
+			var newpath = './public/img/' +  fields.nif + '-0.png';
+				pics(oldpath, newpath);
+
+				var data = {
+					'nome':fields.nome,
+					'morada': fields.morada,
+					'telemovel': fields.telemovel,
+					'email': fields.email,
+					'nif': fields.nif,
+					'cc': fields.cc,
+					'num_fotos_cliente':1,
+					'data_nascimento': fields.data_nascimento
+					  
+				};
 			
-			var oldpath = c.path;
+		}else{
 
-			var newpath = './public/img/' + fields.nif  +'-'+ i +'.png';
-		
-		pics(oldpath,newpath);
-	  i++
+			for( var c of files.fotocliente){
+				
+				var oldpath = c.path;
 
-
-
-		  
+				var newpath = './public/img/' + fields.nif  +'-'+ i +'.png';
+			
+				pics(oldpath,newpath);
+				i++
+			}
+			var data = {
+				'nome':fields.nome,
+				'morada': fields.morada,
+				'telemovel': fields.telemovel,
+				'email': fields.email,
+				'nif': fields.nif,
+				'cc': fields.cc,
+				'num_fotos_cliente':num_fotos_cliente,
+				'data_nascimento': fields.data_nascimento
+				  
+			};
 		}
-
-	
 
 		function pics(oldpath, newpath){
 
-
-			Jimp.read(oldpath, function (err, lenna) {
-		
-
+			Jimp.read(oldpath, function (err, lenna) {		
 				
 				if (err) throw err;
 				lenna.resize(1024, 768)            // resize 
@@ -88,23 +111,9 @@ router.post('/createclientes', function(request, response) {
 					 .write(newpath); // save 
 			});
 			
-
-
-
-
 		}
 	
-	var data = {
-			'nome':fields.nome,
-			'morada': fields.morada,
-			'telemovel': fields.telemovel,
-			'email': fields.email,
-			'nif': fields.nif,
-			'cc': fields.cc,
-			'num_fotos_cliente':num_fotos_cliente,
-			'data_nascimento': fields.data_nascimento
-			  
-		};
+	
 		model.create(data, function(){
 			
 		});

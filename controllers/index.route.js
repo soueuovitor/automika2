@@ -4,6 +4,8 @@ const modelClientes = require('../models/clientes.model');
 
 router.get('/',global.secure('admin'), function(request, response){
 	console.log(request.user);
+
+	
 	//console.log(request.isAuthenticated());
 	modelClientes.list(function (clientes) {
 		var numeroClientes = clientes.length;

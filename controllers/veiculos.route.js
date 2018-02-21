@@ -17,17 +17,6 @@ router.get('/', function (request, response) {
 		})
 	})
 });
-router.get('/:marca', function (request, response) {
-	//console.log(request.user);
-	//console.log(request.isAuthenticated());
-	model.filtraMarca(request.params.marca, function (veiculos) {
-
-		response.set("Content-Type", "text/html");
-		response.render('./veiculos-list', {
-			data: veiculos
-		})
-	})
-});
 
 
 

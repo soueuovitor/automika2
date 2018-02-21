@@ -172,32 +172,49 @@
     -------------*/
 
 
+    var $grid = $('.grid').isotope({
+        // options
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows'
+      });
+    
+    
 
     $("#marca").keyup(function() {
-        var e = $("#marca").val()
+        var marca = $("#marca").val()
         $('.card').show();
-            var filter = e; // get the value of the input, which we filter on
-            $('.col-md-3').find(".card-title:not(:contains(" + filter + "))").parent().parent().parent().slideUp();
-            $('.col-md-3').find(".card-title:contains(" + filter + ")").parent().parent().parent().slideDown();
+           
+            $('.col-md-3').find(".card-title:not(:contains(" + marca + "))").parent().parent().parent().slideUp();
+            $('.col-md-3').find(".card-title:contains(" + marca + ")").parent().parent().parent().slideDown();
 
 
    
         });
-
+  
         $("#modelo").keyup(function() {     
             
             var modelo = $("#modelo").val()
             var marca = $("#marca").val();
+           
+           /*
             $('.card').show();
               // get the value of the input, which we filter on
                 $('.col-md-3').find(".card-text:not(:contains(" + modelo + "))").parent().parent().parent().slideUp();
-                $('.col-md-3').find(".card-text:contains(" + modelo + ")")||$('.col-md-3').find(".card-text:contains(" + marca + ")").parent().parent().parent().slideDown();
+                (($('.col-md-3').find(".card-text:contains(" + modelo + ")"))($('.col-md-3').find(".card-title:contains(" + marca + ")"))).parent().parent().parent().slideDown();
+            
+                */
 
+
+               $grid.isotope({ filter: function() {
+                var marca2 = $(this).find('.card-title').text();
+                var modelo2 = $(this).find('.card-text').text();
+                return marca2.match(marca)&&modelo2.match(modelo);
+              } })
             });
         
+
+          
 })(jQuery);
-
-
 
 
 

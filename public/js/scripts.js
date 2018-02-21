@@ -184,7 +184,7 @@
    
         });
 
-
+alert('fuck')
         $("#modelo").keyup(function() {     
             
             var e = $("#modelo").val()

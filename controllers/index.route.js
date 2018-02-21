@@ -5,6 +5,8 @@ const modelVeiculos = require('../models/veiculos.model');
 
 router.get('/',global.secure('admin'), function(request, response){
 	console.log(request.user);
+
+	
 	//console.log(request.isAuthenticated());
 //Clientes-------------------------
 	modelClientes.list(function (clientes) {

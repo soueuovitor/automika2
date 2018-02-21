@@ -107,7 +107,25 @@
                     }
                 </style>
 
-                <div class="search-panel">
+                <div class="search-panel" style="background-color: white; padding-left:5px;padding-bottom:5px;">
+
+
+                    <div class="button-group sort-by-button-group" >
+
+                       
+                       
+                                <label for="sel1">Ordenar Por:</label>
+                                <select class="form-control button" id="sortPrice" style="width:100px;">
+                                <option>Preço</option>
+                                <option value="precoA">Preço Ascendente</option>
+                                <option value="precoD">Preço Descendente</option>
+                                
+                                </select>
+                         
+                    </div>
+
+
+
                     <input id="marca" placeholder="Marca" type="text">
 
                     <input id="modelo" placeholder="Modelo" type="text">
@@ -116,7 +134,7 @@
                 <section id="main-cards">
 
                     <div id="nao_vendidos" class="row grid">
-                        
+
                         <% for (var c of data) { %>
                             <% if (c.ativo == 1) { %>
                                 <div class="col-md-3 grid-item" style="padding-right: 5px;" data-toggle="modal" data-target="#<%= c.id %>">
@@ -133,16 +151,16 @@
                                             </p>
                                         </div>
                                         <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
+                                            <li class="list-group-item km">
                                                 <%= c.km %> Km </li>
-                                            <li class="list-group-item">
+                                            <li class="list-group-item cilindrada">
                                                 <%= c.cilindrada %> cc</li>
-                                            <li class="list-group-item">
+                                            <li class="list-group-item cavalagem">
                                                 <%= c.cv %> cavalos</li>
                                         </ul>
                                         <div class="card-block">
                                             <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
-                                            <h4 style="padding-top: 10px;display: inline-flex; float:right">
+                                            <h4 class="price" style="padding-top: 10px;display: inline-flex; float:right">
                                                 <%= c.valor_venda %>
                                             </h4>
                                         </div>

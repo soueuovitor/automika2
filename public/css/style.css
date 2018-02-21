@@ -1,4 +1,4 @@
-
+/* Cartoes */
 .card-body {
   padding: 0;
 }
@@ -67,3 +67,25 @@
 }
 
 card-img{width:100%;border-radius:calc(.25rem - 1px)}.card-img-top{width:100%;border-top-left-radius:calc(.25rem - 1px);border-top-right-radius:calc(.25rem - 1px)}.card-img-bottom{width:100%;border-bottom-right-radius:calc(.25rem - 1px);border-bottom-left-radius:calc(.25rem - 1px)}
+
+/*    Input Style
+------------------------*/
+.form-group {
+  margin-bottom: 20px;
+}
+.form-control {
+  height: 42px;
+  border-radius: 0px;
+  box-shadow: none;
+  border-color: #e7e7e7;
+  font-family: 'Roboto', sans-serif;
+}
+.form-control:hover {
+  box-shadow: none;
+  border-color: #e7e7e7;
+}
+.form-control:focus,
+.form-control.active {
+  box-shadow: none;
+  border-color: #878787;
+}

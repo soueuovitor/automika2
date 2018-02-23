@@ -180,7 +180,8 @@
         getSortData: {
             cv: '.cavalagem',
             preco: '.price parseInt',
-            ano: '.year parseInt'
+            ano: '.year parseInt',
+            km: '.km parseInt'
 
         }
     });
@@ -209,7 +210,79 @@
 
     });
 
+    $('#sortKm').change(function () {
+       
+        var sortValue = $('#sortKm option:selected').val();
+       
+        if (sortValue == "kmA") {
+        
+            $grid.isotope({
+                sortBy: 'km',
+                sortAscending: true
 
+            })
+
+        } else {
+
+            $grid.isotope({
+                sortBy: 'km',
+                sortAscending: false
+            });
+        }
+
+
+    });
+
+
+
+    $("#sortKmInf").keyup(function () {
+        var kmMenor = parseInt($('#sortKmInf').val());
+        $('.card').show();
+
+
+
+        $grid.isotope({
+            filter: function () {
+            
+                 
+      
+                if (isNaN(kmMenor)){
+                    kmMenor= 0;
+    
+                }
+    
+
+                var kmMenor2 = parseInt($(this).find('.km').text());
+              
+                
+                return kmMenor2>=kmMenor;
+         
+            }
+        })
+    });
+
+    $("#sortKmSuper").keyup(function () {
+
+    var kmMaior = parseInt($('#sortKmSuper').val());
+
+    $grid.isotope({
+        filter: function () {
+        
+             
+            if (isNaN(kmMaior)){
+                kmMaior = 1000000000;
+
+            }
+
+            var kmMenor2 = parseInt($(this).find('.km').text());
+           
+
+            return kmMenor2<=kmMaior;
+     
+        }
+    })
+
+    })
 
     $("#marca").keyup(function () {
         var marca = $("#marca").val()

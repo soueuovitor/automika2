@@ -9,7 +9,7 @@ module.exports = {
 	},
 
 	dropdown(callback) {
-		var sql = 'SELECT matricula valor_venda from veiculos';
+		var sql = 'SELECT matricula, valor_venda from veiculos';
 		global.connection.query(sql, function(error, rows, fields){
 			if (error) throw error;
 			callback(rows);
@@ -35,7 +35,6 @@ module.exports = {
 			});
 	},
 
-
 	updatecarro(data, callback) {
 		var sql = "UPDATE veiculos SET  ativo=0 WHERE matricula=?";
 		global.connection.query(
@@ -45,38 +44,5 @@ module.exports = {
 				callback(rows[0]);
 			});
 	},
-
-
-
-
-
-
-
-
-
-
-
-
-	/*
-	takenUsername(username, callback) {
-	    
-	    var sql = "SELECT password FROM participantes WHERE username=?"
-	    var user = global.connection.query(SQL, [username] );
-	                                       
-	                                       
-	                function bit (error, rows, fields){
-				     if (user === undefined)  {callback(true);
-	                    }else{
-	                        callback(false);
-	                    }
-	    }
-	},
-	                   
-	*/
-
-
-
-
-	//New
 
 };

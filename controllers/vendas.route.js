@@ -39,8 +39,6 @@ router.post('/create', function(request, response) {
 		model.create(data, function () {
 			model.updatecarro(data, function(){});
 			response.redirect('/vendas')
-			
-	
 	})	
 });
 

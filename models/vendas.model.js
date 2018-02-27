@@ -9,7 +9,7 @@ module.exports = {
 	},
 
 	dropdown(callback) {
-		var sql = 'SELECT matricula from veiculos';
+		var sql = 'SELECT matricula valor_venda from veiculos';
 		global.connection.query(sql, function(error, rows, fields){
 			if (error) throw error;
 			callback(rows);

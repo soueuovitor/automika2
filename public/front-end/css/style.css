@@ -8,7 +8,6 @@ body, html {
 }
 h1 {
 	font-weight: 700;
-	color:black;
 }
 h1 strong {
 	font-weight: 900;
@@ -264,8 +263,8 @@ hr {
 	padding: 150px 0;
 	text-align: center;
 	color: #fff;
-	
-	background-color: white;
+	background: url(../img/logot.jpg) no-repeat center	 ;
+	background-color: #000;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

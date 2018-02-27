@@ -1,6 +1,6 @@
 module.exports = {
 	list(callback) {
-		var sql = 'SELECT * from veiculos';
+		var sql = 'SELECT * from vendas';
 		global.connection.query(sql, function (error, rows, fields) {
 			if (error) throw error;
 			callback(rows);
@@ -9,7 +9,7 @@ module.exports = {
 	},
 
 	dropdown(callback) {
-		var sql = 'SELECT matricula from veiculos';
+		var sql = 'SELECT matricula valor_venda from veiculos';
 		global.connection.query(sql, function(error, rows, fields){
 			if (error) throw error;
 			callback(rows);
@@ -27,8 +27,7 @@ module.exports = {
 	create(data, callback) {
 		var sql = "INSERT INTO vendas (comprador, carro) VALUES (?,?)";
 		global.connection.query(
-         
-			sql, [data.comprador, data.matricula ],
+			sql, [data.comprador, data.carro ],
 			function (error, rows, fields) {
 				if (error) throw error;
                 callback(rows[0]);
@@ -38,9 +37,9 @@ module.exports = {
 
 
 	updatecarro(data, callback) {
-		var sql = "UPDATE veiculos SET  ativo=? WHERE matricula=?";
+		var sql = "UPDATE veiculos SET  ativo=0 WHERE matricula=?";
 		global.connection.query(
-			sql, [ 0, data.matricula],
+			sql, [data.carro],
 			function (error, rows, fields) {
 				if (error) throw error;
 				callback(rows[0]);

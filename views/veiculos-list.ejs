@@ -158,6 +158,7 @@
                         }
                     }
                 </style>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="input-group" id="adv-search">
@@ -176,9 +177,12 @@
                                                         <option>Ordenar Por:</option>
                                                         <option value="precoA">Preço Ascendente</option>
                                                         <option value="precoD">Preço Descendente</option>
+                                                        <option value="cvA">Mais cavalos</option>
+                                                        <option value="cvD">Menos cavalos</option>
 
                                                     </select>
                                                 </div>
+                                            
                                                 <div class="form-group">
                                                     <input class="form-control sortKm" id="sortKmInf" placeholder="minKm" type="text" style="float: left">
                                                     <input class="form-control sortKm" id="sortKmSuper" placeholder="maxKm" type="text"  style="float:right">
@@ -204,29 +208,10 @@
             </div>
 
             
-            <div class="search-panel col-md-12">
+         
 
 
-                <div class="button-group sort-by-button-group">
-
-
-
-                    <label for="sortPrice">Ordenar Por:</label>
-
-
-
-
-
-                    </select>
-                </div>
-
-
-
-                <input id="marca" placeholder="Marca" type="text">
-
-                <input id="modelo" placeholder="Modelo" type="text">
-            </div>
-
+    
             <section id="main-cards">
 
                 <div id="nao_vendidos" class="row grid">

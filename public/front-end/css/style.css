@@ -260,11 +260,10 @@ hr {
 	
 	width: 100%;
 	height: auto;
-	padding: 150px 0;
+	padding: 100px 0;
 	text-align: center;
 	color: #fff;
-	background: url(../img/logot.jpg) no-repeat center	 ;
-	background-color: #000;
+	background-color: white;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

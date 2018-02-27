@@ -24,10 +24,11 @@ router.get('/',global.secure('admin'), function(request, response){
 
 modelVeiculos.list(function (veiculos) {
 // contar total de veiculos dos varios tipos- inicio
+
 var veiStock = 0;
 var veiVendidos = 0;
-for(i = 0; i <  veiculos.length; i++){
-	if (veiculos.ativo = 1){
+for(var v of veiculos){
+	if (v.ativo == 1){
 		veiStock = veiStock + 1;
 	}else{
 		veiVendidos = veiVendidos + 1;
@@ -38,7 +39,7 @@ for(i = 0; i <  veiculos.length; i++){
 	var marca1 = 0;
 	var marca2 = 0;
 	for(var v of veiculos){
-		console.log(v.marca);
+		
 		//Contar os veiculos de cada marca- inicio
 		if (v.marca == "qwertyuiop+" ){
 			
@@ -48,6 +49,33 @@ for(i = 0; i <  veiculos.length; i++){
 		}
 	}
 	//Contar os veiculos de cada marca- fim
+	//Ver gastos- inicio
+	var gastos = 0;
+	for(var v of veiculos){
+		gastos = gastos + v.valor_compra;
+		gastos = gastos + v.despesas;
+		
+	}
+
+	//Ver gastos- fim
+		//Ver ganhos- inicio
+		var ganhos = 0;
+		for(var v of veiculos){
+			
+			if (v.ativo == 0){
+			
+				ganhos = ganhos + v.valor_venda;
+			
+			}
+		}
+	
+		//Ver ganhos- fim
+				//Ver lucro- inicio
+				var lucro = ganhos - gastos;
+				
+			
+				//Ver lucro- fim
+
 
 	
 
@@ -65,6 +93,9 @@ for(i = 0; i <  veiculos.length; i++){
 		veiVendidos : veiVendidos,
 		marca1 : marca1,
 		marca2 : marca2, 
+		gastos : gastos,
+		ganhos : ganhos,
+		lucro : lucro,
 	})
 })
 });

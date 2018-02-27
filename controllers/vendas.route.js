@@ -14,7 +14,7 @@ router.get('/', global.secure('admin'), function(request, response) {
 	})	
 });
 
-router.get('/createvendas',global.secure('admin'), function(request, response) {
+router.get('/create',global.secure('admin'), function(request, response) {
 	cli.dropdown(function(clientes) {
 		vei.dropdown(function(veiculos) {
 			response.set("Content-Type", "text/html");
@@ -29,23 +29,13 @@ router.get('/createvendas',global.secure('admin'), function(request, response) {
 	})
 });
 
-
-
-router.post('/createvendas/nova', function(request, response) {
+router.post('/create', function(request, response) {
 
 	console.log(request.body.comprador)
 	var data = {
-
-		
 		'comprador' : request.body.comprador,
-
-
-
-		'matricula' : request.body.matricula		
-		
+		'carro' : request.body.matricula		
 	};
-
-
 		model.create(data, function () {
 			model.updatecarro(data, function(){});
 			response.redirect('/vendas')

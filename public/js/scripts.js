@@ -199,11 +199,23 @@
 
             })
 
-        } else {
+        } else if(sortValue == "precoD") {
 
             $grid.isotope({
                 sortBy: 'preco',
                 sortAscending: false
+            });
+        } else if (sortValue == "cvA") {
+
+            $grid.isotope({
+                sortBy: 'cv',
+                sortAscending: false
+            });
+        } else if (sortValue == "cvD") {
+
+            $grid.isotope({
+                sortBy: 'cv',
+                sortAscending: true
             });
         }
 

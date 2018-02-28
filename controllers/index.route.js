@@ -36,11 +36,12 @@ for(var v of veiculos){
 }
 
 // contar total de veiculos dos varios tipos- fim
+//Contar os veiculos de cada marca- inicio
 	var marca1 = 0;
 	var marca2 = 0;
 	for(var v of veiculos){
 		
-		//Contar os veiculos de cada marca- inicio
+		
 		if (v.marca == "qwertyuiop+" ){
 			
 			marca1 = marca1 + 1;
@@ -75,6 +76,9 @@ for(var v of veiculos){
 				
 			
 				//Ver lucro- fim
+
+
+			
 
 
 	

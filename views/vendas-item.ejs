@@ -34,29 +34,37 @@
                           novalidate>
                           <span class="section"></span>
                           <br>
-                          <select class="form-control" id="userSel" name="comprador" onchange="filter()" >
-                            <option>Selecione um Cliente</option>
-                            <% for (var c of clientes) { %>
-                              <option value="<%= c.nif %>" > <%= c.nome %></option>
-                            <% } %>
-                          </select>
-                            <br>
-                            <div class="item form-group">
-                              <label class="control-label col-md-2 col-sm-6 col-xs-12" for="tituloS">Selecione o  veiculo<span class="required">*</span>
-                              </label>
-                              <select class="form-control" id="matricula" name="matricula">
-                                <option>Selecione um Veiculo</option>
-                                <% for (var v of veiculos) { %>
-                                  <option value="<%= v.matricula %>" ><%= v.matricula %></option>
+                          <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Selecione o  cliente<span class="required">*</span>
+                            </label>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                              <select class="form-control" id="userSel" name="comprador" onchange="filter()" >
+                                <option>Selecione um Cliente</option>
+                                <% for (var c of clientes) { %>
+                                  <option value="<%= c.nif %>" > <%= c.nome %></option>
                                 <% } %>
                               </select>
+                            </div>
+                          </div>
+                            <br>
+                            <div class="item form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Selecione o  veiculo<span class="required">*</span>
+                              </label>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                <select class="form-control" id="matricula" name="matricula">
+                                  <option>Selecione um Veiculo</option>
+                                  <% for (var v of veiculos) { %>
+                                    <option value="<%= v.matricula %>" ><%= v.matricula %></option>
+                                  <% } %>
+                                </select>
+                              </div>
                             </div>
                           <br>
                           <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Preço de Venda<span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input class="form-control col-md-7 col-xs-12" id="preco" name="tituloS" type="text">
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                              <input class="form-control col-md-7 col-xs-12" id="preco" name="preco" type="text">
                             </div>
                         </div>
                           <div class="ln_solid"></div>

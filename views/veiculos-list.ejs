@@ -1,6 +1,44 @@
 <% include partials/header%>
 
     <div class="content-wrap">
+        <div class="row">
+            <div class="col-lg-12" style="height:max-content;background-color: white; width:100%">
+
+                <h1>Procurar</h1>
+                <input class="form-control" id="marca" placeholder="Marca" type="text" style="width:30%" />
+
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseDiv">pesquisa avançada</button>
+
+
+
+                <div id="collapseDiv" class="collapse">
+
+
+
+                    <input class="form-control" id="modelo" placeholder="Modelo" type="text" />
+
+                    <select class="form-control button" id="sortPrice">
+                        <option>Ordenar Por:</option>
+                        <option value="precoA">Preço Ascendente</option>
+                        <option value="precoD">Preço Descendente</option>
+                        <option value="cvA">Mais cavalos</option>
+                        <option value="cvD">Menos cavalos</option>
+
+                    </select>
+
+
+
+                    <div class="form-group">
+                        <input class="form-control sortKm" id="sortKmInf" placeholder="minKm" type="text" style="float: left">
+                        <input class="form-control sortKm" id="sortKmSuper" placeholder="maxKm" type="text" style="float:right">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
         <div class="main">
             <div class="container-fluid">
 
@@ -11,7 +49,10 @@
                             <div class="page-title">
                                 <h1>Listagem
                                     <small>dos Veiculos</small>
-                                </h1>
+                                </h1>select { width:150px; border:1px solid red; -webkit-border-top-right-radius: 15px; -webkit-border-bottom-right-radius:
+                                15px; -moz-border-radius-topright: 15px; -moz-border-radius-bottomright: 15px; border-top-right-radius:
+                                15px; border-bottom-right-radius: 15px; padding:2px; }
+
                                 <select id="choose_vendidos" class="chooseStyle" style="float:left; margin-right: 10px">
                                     <option value="nao_vendidos" selected>Por vender</option>
                                     <option value="vendidos">Vendidos</option>
@@ -157,20 +198,51 @@
                             min-width: 500px;
                         }
                     }
+
+                    .slider-container {
+                        width: 50%;
+
+                        margin: auto;
+                    }
+
+                    .btn {
+
+                        border-radius: 20px;
+
+                    }
+
+                    .form-control {
+                        border-radius: 50px;
+                        margin-bottom: 10px;
+                        width: 50%;
+                        display: inline-block;
+
+                    }
                 </style>
-                
+
+
+
+
                 <div class="row">
                     <div class="col-md-12">
+
+
+
+
                         <div class="input-group" id="adv-search">
-                            <input type="text" class="form-control" placeholder="Search for snippets" />
+                            <input type="text" id="marca" class="form-control" placeholder="Marca" />
                             <div class="input-group-btn">
                                 <div class="btn-group" role="group">
                                     <div class="dropdown dropdown-lg">
                                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                             <span class="caret"></span>
                                         </button>
+
+
                                         <div class="dropdown-menu dropdown-menu-right" role="menu">
+
                                             <form class="form-horizontal" role="form">
+
                                                 <div class="form-group">
 
                                                     <select class="form-control button" id="sortPrice">
@@ -182,11 +254,14 @@
 
                                                     </select>
                                                 </div>
-                                            
+
+
+
                                                 <div class="form-group">
                                                     <input class="form-control sortKm" id="sortKmInf" placeholder="minKm" type="text" style="float: left">
-                                                    <input class="form-control sortKm" id="sortKmSuper" placeholder="maxKm" type="text"  style="float:right">
+                                                    <input class="form-control sortKm" id="sortKmSuper" placeholder="maxKm" type="text" style="float:right">
                                                 </div>
+
                                                 <div class="form-group">
                                                     <label for="contain">Modelo</label>
                                                     <input class="form-control" id="modelo" placeholder="Modelo" type="text" />
@@ -197,9 +272,12 @@
                                             </form>
                                         </div>
                                     </div>
+
                                     <button type="button" class="btn btn-primary">
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                     </button>
+
+
                                 </div>
                             </div>
                         </div>
@@ -207,11 +285,11 @@
                 </div>
             </div>
 
-            
-         
 
 
-    
+
+
+
             <section id="main-cards">
 
                 <div id="nao_vendidos" class="row grid">
@@ -247,11 +325,11 @@
                                     </div>
 
                                 </div>
-           
+
                             </div>
 
 
-                            
+
                             <script>
                                 var slideIndex <%= c.id %> = 1;
                                 showDivs <%= c.id %> (slideIndex <%= c.id %>.style.display = "block");

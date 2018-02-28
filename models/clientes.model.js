@@ -4,13 +4,13 @@ module.exports = {
 		global.connection.query(sql, function (error, rows, fields) {
 			if (error) throw error;
 			callback(rows);
-			
+
 		});
 	},
 
 	dropdown(callback) {
 		var sql = 'SELECT nome, nif from clientes';
-		global.connection.query(sql, function(error, rows, fields){
+		global.connection.query(sql, function (error, rows, fields) {
 			if (error) throw error;
 			callback(rows);
 		});
@@ -43,13 +43,14 @@ module.exports = {
 			callback(rows);
 		});
 	},
-	update( data, callback) {
-		var sql = "UPDATE clientes SET nome=?, morada=?, telemovel=?, email=?, nif=?, cc=?  WHERE idclientes=?"; 
+	update(data, callback) {
+		var sql = "UPDATE clientes SET nome=?, morada=?, telemovel=?, email=?, nif=?, cc=?  WHERE idclientes=?";
 		global.connection.query(
-			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif, data.cc, data.idclientes], function(error, rows, fields) {
-			if (error) throw error;
-			callback(rows[0]);			
-		});
+			sql, [data.nome, data.morada, data.telemovel, data.email, data.nif, data.cc, data.idclientes],
+			function (error, rows, fields) {
+				if (error) throw error;
+				callback(rows[0]);
+			});
 	},
 
 	/*
@@ -85,6 +86,6 @@ module.exports = {
 		});
 	}
 
-	
+
 
 };

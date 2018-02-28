@@ -188,18 +188,18 @@
 
 
     $('#sortPrice').change(function () {
-       
+
         var sortValue = $('#sortPrice option:selected').val();
-       
+
         if (sortValue == "precoA") {
-        
+
             $grid.isotope({
                 sortBy: 'preco',
                 sortAscending: true
 
             })
 
-        } else if(sortValue == "precoD") {
+        } else if (sortValue == "precoD") {
 
             $grid.isotope({
                 sortBy: 'preco',
@@ -223,11 +223,11 @@
     });
 
     $('#sortKm').change(function () {
-       
+
         var sortValue = $('#sortKm option:selected').val();
-       
+
         if (sortValue == "kmA") {
-        
+
             $grid.isotope({
                 sortBy: 'km',
                 sortAscending: true
@@ -255,44 +255,44 @@
 
         $grid.isotope({
             filter: function () {
-            
-                 
-      
-                if (isNaN(kmMenor)){
-                    kmMenor= 0;
-    
+
+
+
+                if (isNaN(kmMenor)) {
+                    kmMenor = 0;
+
                 }
-    
+
 
                 var kmMenor2 = parseInt($(this).find('.km').text());
-              
-                
-                return kmMenor2>=kmMenor;
-         
+
+
+                return kmMenor2 >= kmMenor;
+
             }
         })
     });
 
     $("#sortKmSuper").keyup(function () {
 
-    var kmMaior = parseInt($('#sortKmSuper').val());
+        var kmMaior = parseInt($('#sortKmSuper').val());
 
-    $grid.isotope({
-        filter: function () {
-        
-             
-            if (isNaN(kmMaior)){
-                kmMaior = 1000000000;
+        $grid.isotope({
+            filter: function () {
+
+
+                if (isNaN(kmMaior)) {
+                    kmMaior = 1000000000;
+
+                }
+
+                var kmMenor2 = parseInt($(this).find('.km').text());
+
+
+                return kmMenor2 <= kmMaior;
 
             }
-
-            var kmMenor2 = parseInt($(this).find('.km').text());
-           
-
-            return kmMenor2<=kmMaior;
-     
-        }
-    })
+        })
 
     })
 
@@ -336,3 +336,18 @@
 
 
 })(jQuery);
+                
+var mySlider = new rSlider({
+
+    target: '#slider',
+    
+    values: {min: 1000, max: 100000},
+    
+    step: 1000,
+    range: true,
+    scale: true,
+    labels: false,
+    
+    onChange: null // callback
+    
+    });

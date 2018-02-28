@@ -172,6 +172,9 @@
     -------------*/
 
 
+    
+
+
     var $grid = $('.grid').isotope({
         // options
         itemSelector: '.grid-item',
@@ -247,6 +250,7 @@
 
 
 
+
     $("#sortKmInf").keyup(function () {
         var kmMenor = parseInt($('#sortKmInf').val());
         $('.card').show();
@@ -298,6 +302,8 @@
 
     $("#marca").keyup(function () {
         var marca = $("#marca").val()
+        console.log(mySlider.getValue()
+    )
         $('.card').show();
 
 
@@ -308,6 +314,7 @@
                 return marca2.match(marca);
             }
         })
+       
     });
 
     $("#modelo").keyup(function () {
@@ -333,21 +340,46 @@
         })
     });
 
+    function km(preco){
+    
+        prices = preco;
+        $grid.isotope({
+            filter: function () {
+
+                var string = preco.toString();
+                var precos = string.split(",");
+
+                var precoMaior2 = parseInt($(this).find('.price').text());
+    
+                var precoMenor2 = parseInt($(this).find('.price').text());
+               
+                console.log(precoMenor2>=precos[0]&&precoMaior2<=precos[1])
+                return precoMenor2>=precos[0]&&precoMaior2<=precos[1];
+    
+            }
+        })
+    
+    
+    }
+   var prices = 0;
 
 
+    $('#collapseDiv').on('shown.bs.collapse', function() {
+        var mySlider = new rSlider({
+    
+            target: '#slider2',
+            
+            values: {min: 0, max: 100000},
+            
+            step: 1000,
+            range: true,
+            scale: true,
+            labels: false,
+            
+            onChange: (function (values) { 
+                km(values)  })
+        });
+      })
+    
 })(jQuery);
-                
-var mySlider = new rSlider({
 
-    target: '#slider',
-    
-    values: {min: 1000, max: 100000},
-    
-    step: 1000,
-    range: true,
-    scale: true,
-    labels: false,
-    
-    onChange: null // callback
-    
-    });

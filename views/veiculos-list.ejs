@@ -2,691 +2,584 @@
 
     <div class="content-wrap">
         <div class="row">
-            <div class="col-lg-12" style="height:max-content;background-color: white; width:100%">
+            <div class="col-lg-12" style="height:max-content;background-color: white; ">
 
                 <h1>Procurar</h1>
                 <input class="form-control" id="marca" placeholder="Marca" type="text" style="width:30%" />
+                <select class="form-control button" id="sortPrice" style="float:right">
+                    <option>Ordenar Por:</option>
+                    <option value="precoA">Preço Ascendente</option>
+                    <option value="precoD">Preço Descendente</option>
+                    <option value="cvA">Mais cavalos</option>
+                    <option value="cvD">Menos cavalos</option>
 
-                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseDiv">pesquisa avançada</button>
+                </select>
 
 
 
-                <div id="collapseDiv" class="collapse">
+                <button type="button" class="btn btn-info" data-toggle="collapse"style="margin-bottom:10px" data-target="#collapseDiv">pesquisa avançada</button>
 
 
+
+                <div id="collapseDiv" class="collapse" style="height:max-content">
+
+
+                        <div class="slider-container">
+                                <input class="slider" id="slider2" type="text"  />
+        
+                        </div>
 
                     <input class="form-control" id="modelo" placeholder="Modelo" type="text" />
 
-                    <select class="form-control button" id="sortPrice">
-                        <option>Ordenar Por:</option>
-                        <option value="precoA">Preço Ascendente</option>
-                        <option value="precoD">Preço Descendente</option>
-                        <option value="cvA">Mais cavalos</option>
-                        <option value="cvD">Menos cavalos</option>
-
-                    </select>
+                    <br>
 
 
-
-                    <div class="form-group">
-                        <input class="form-control sortKm" id="sortKmInf" placeholder="minKm" type="text" style="float: left">
-                        <input class="form-control sortKm" id="sortKmSuper" placeholder="maxKm" type="text" style="float:right">
-                    </div>
+                    <input class="form-control  sortKm" id="sortKmInf" placeholder="minKm" type="text" style="float: left">
+                    <input class="form-control sortKm" id="sortKmSuper" placeholder="maxKm" type="text" style="float:right">
 
 
                 </div>
             </div>
-        </div>
 
 
-        <div class="main">
-            <div class="container-fluid">
 
-                <div class="row">
+            <div class="main">
+                <div class="container-fluid">
 
-                    <div class="col-lg-8 p-r-0 title-margin-right">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <h1>Listagem
-                                    <small>dos Veiculos</small>
-                                </h1>select { width:150px; border:1px solid red; -webkit-border-top-right-radius: 15px; -webkit-border-bottom-right-radius:
-                                15px; -moz-border-radius-topright: 15px; -moz-border-radius-bottomright: 15px; border-top-right-radius:
-                                15px; border-bottom-right-radius: 15px; padding:2px; }
+                    <div class="row">
 
-                                <select id="choose_vendidos" class="chooseStyle" style="float:left; margin-right: 10px">
-                                    <option value="nao_vendidos" selected>Por vender</option>
-                                    <option value="vendidos">Vendidos</option>
-                                </select>
-                                <select id="choose" class="chooseStyle" style="float:left;">
-                                    <option value="main-cards" selected>Cartão</option>
-                                    <option value="main-list">Lista</option>
+                        <div class="col-lg-8 p-r-0 title-margin-right">
+                            <div class="page-header">
+                                <div class="page-title">
+                                    <h1>Listagem
+                                        <small>dos Veiculos</small>
+                                    </h1>
+                                    <select id="choose_vendidos" class="chooseStyle" style="float:left; margin-right: 10px">
+                                        <option value="nao_vendidos" selected>Por vender</option>
+                                        <option value="vendidos">Vendidos</option>
+                                    </select>
+                                    <select id="choose" class="chooseStyle" style="float:left;">
+                                        <option value="main-cards" selected>Cartão</option>
+                                        <option value="main-list">Lista</option>
 
-                                </select>
+                                    </select>
+                                </div>
+
                             </div>
-
                         </div>
+
                     </div>
 
-                </div>
 
-
-                <!-- /# row -->
+                    <!-- /# row -->
 
 
 
 
-                <script>
-                    function switchDiv() {
+                    <script>
+                        function switchDiv() {
 
-                        $('#choose').change(function () {
-                            var chosen = $('#choose').val();
-                            var chosen_cars = $('#choose_vendidos').val();
+                            $('#choose').change(function () {
+                                var chosen = $('#choose').val();
+                                var chosen_cars = $('#choose_vendidos').val();
 
-                            if (chosen_cars === 'nao_vendidos') {
-                                if (chosen === 'main-list') {
-                                    $('#nao_vendidos').slideUp();
-                                    $('#list_nao_vendidos').slideDown();
+                                if (chosen_cars === 'nao_vendidos') {
+                                    if (chosen === 'main-list') {
+                                        $('#nao_vendidos').slideUp();
+                                        $('#list_nao_vendidos').slideDown();
+                                    } else {
+
+                                        $('#list_vendidos').slideUp();
+
+                                        $('#nao_vendidos').slideDown();
+
+
+                                    }
                                 } else {
 
-                                    $('#list_vendidos').slideUp();
+                                    if (chosen === 'main-list') {
 
-                                    $('#nao_vendidos').slideDown();
+                                        $('#list_vendidos').slideDown();
+                                        $('#vendidos').slideUp();
+
+                                    } else {
 
 
+                                        $('#list_vendidos').slideUp();
+                                        $('#vendidos').slideDown();
+                                    }
                                 }
-                            } else {
+                            })
 
-                                if (chosen === 'main-list') {
+                        }
 
-                                    $('#list_vendidos').slideDown();
+                        function switchVendidos() {
+
+                            $('#choose_vendidos').change(function () {
+                                var chosen = $('#choose_vendidos').val();
+                                if (chosen === 'nao_vendidos') {
                                     $('#vendidos').slideUp();
-
-                                } else {
-
-
                                     $('#list_vendidos').slideUp();
+                                    $('#nao_vendidos').slideDown();
+                                } else {
+                                    $('#list_nao_vendidos').slideUp();
+                                    $('#nao_vendidos').slideUp();
                                     $('#vendidos').slideDown();
                                 }
-                            }
-                        })
+                            })
 
-                    }
-
-                    function switchVendidos() {
-
-                        $('#choose_vendidos').change(function () {
-                            var chosen = $('#choose_vendidos').val();
-                            if (chosen === 'nao_vendidos') {
-                                $('#vendidos').slideUp();
-                                $('#list_vendidos').slideUp();
-                                $('#nao_vendidos').slideDown();
-                            } else {
-                                $('#list_nao_vendidos').slideUp();
-                                $('#nao_vendidos').slideUp();
-                                $('#vendidos').slideDown();
-                            }
-                        })
-
-                    }
-
-                    function start() {
-                        switchDiv()
-                        switchVendidos()
-
-                    }
-                    window.onload = start;
-                </script>
-
-
-                <style>
-                    .grid-item {
-                        width: 25%;
-                    }
-
-                    .grid-item--width2 {
-                        width: 50%;
-                    }
-
-                    .col-md-12 {
-
-                        display: block;
-                    }
-
-                    .dropdown.dropdown-lg .dropdown-menu {
-                        margin-top: -1px;
-                        padding: 6px 20px;
-                    }
-
-                    .input-group-btn .btn-group {
-                        display: flex !important;
-                    }
-
-                    .btn-group .btn {
-                        border-radius: 0;
-                        margin-left: -1px;
-                    }
-
-                    .btn-group .btn:last-child {
-                        border-top-right-radius: 4px;
-                        border-bottom-right-radius: 4px;
-                    }
-
-                    .btn-group .form-horizontal .btn[type="submit"] {
-                        border-top-left-radius: 4px;
-                        border-bottom-left-radius: 4px;
-                    }
-
-                    .form-horizontal .form-group {
-                        margin-left: 0;
-                        margin-right: 0;
-                    }
-
-                    .form-group .form-control:last-child {
-                        border-top-left-radius: 4px;
-                        border-bottom-left-radius: 4px;
-                    }
-
-                    @media screen and (min-width: 768px) {
-                        #adv-search {
-                            width: 500px;
-                            margin: 0 auto;
                         }
-                        .dropdown.dropdown-lg {
-                            position: static !important;
+
+                        function start() {
+                            switchDiv()
+                            switchVendidos()
+
                         }
-                        .dropdown.dropdown-lg .dropdown-menu {
-                            min-width: 500px;
+                        window.onload = start;
+                    </script>
+
+
+                    <style>
+                        .grid-item {
+                            width: 25%;
                         }
-                    }
 
-                    .slider-container {
-                        width: 50%;
-
-                        margin: auto;
-                    }
-
-                    .btn {
-
-                        border-radius: 20px;
-
-                    }
-
-                    .form-control {
-                        border-radius: 50px;
-                        margin-bottom: 10px;
-                        width: 50%;
-                        display: inline-block;
-
-                    }
-                </style>
+                        .grid-item--width2 {
+                            width: 50%;
+                        }
 
 
+                        .slider-container {
+                            width: 50%;
+                            float: left;
+                            margin-left: 10px;
+
+                           
+                        }
+
+                        .btn {
+
+                            border-radius: 20px;
+
+                        }
+
+                        .form-control {
+                            border-radius: 50px;
+                            margin-bottom: 10px;
+                            width: 50%;
+                            display: inline-block;
+
+                        }
+                    </style>
 
 
-                <div class="row">
-                    <div class="col-md-12">
+
+
+
+                </div>
 
 
 
 
-                        <div class="input-group" id="adv-search">
-                            <input type="text" id="marca" class="form-control" placeholder="Marca" />
-                            <div class="input-group-btn">
-                                <div class="btn-group" role="group">
-                                    <div class="dropdown dropdown-lg">
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="caret"></span>
-                                        </button>
 
 
-                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                <section id="main-cards">
 
-                                            <form class="form-horizontal" role="form">
+                    <div id="nao_vendidos" class="row grid">
 
-                                                <div class="form-group">
+                        <% for (var c of data) { %>
+                            <% if (c.ativo == 1) { %>
+                                <div class="col-md-3 grid-item" style="padding-right: 5px;" data-toggle="modal" data-target="#<%= c.id %>">
+                                    <div class="card">
+                                        <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
 
-                                                    <select class="form-control button" id="sortPrice">
-                                                        <option>Ordenar Por:</option>
-                                                        <option value="precoA">Preço Ascendente</option>
-                                                        <option value="precoD">Preço Descendente</option>
-                                                        <option value="cvA">Mais cavalos</option>
-                                                        <option value="cvD">Menos cavalos</option>
 
-                                                    </select>
+                                        <div class="card-block">
+                                            <h4 class="card-title">
+                                                <%= c.marca %>
+                                            </h4>
+                                            <p class="card-text">
+                                                <%= c.modelo  %>
+                                            </p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item km">
+                                                <%= c.km %> Km </li>
+                                            <li class="list-group-item cilindrada">
+                                                <%= c.cilindrada %> cc</li>
+                                            <li class="list-group-item cavalagem">
+                                                <%= c.cv %> cavalos</li>
+                                        </ul>
+                                        <div class="card-block">
+                                            <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
+                                            <h4 class="price" style="padding-top: 10px;display: inline-flex; float:right">
+                                                <%= c.valor_venda %>
+                                            </h4>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <script>
+                                    var slideIndex <%= c.id %> = 1;
+                                    showDivs <%= c.id %> (slideIndex <%= c.id %>.style.display = "block");
+
+                                    function plusDivs <%= c.id %> (n <%= c.id %>) {
+                                        showDivs <%= c.id %> (slideIndex <%= c.id %> += n <%= c.id %>);
+                                    }
+
+                                    function showDivs <%= c.id %> (n <%= c.id %>) {
+                                        var i <%= c.id %>;
+                                        var x <%= c.id %> = document.getElementsByClassName("<%= c.id %>");
+
+                                        if (n <%= c.id %> > x <%= c.id %>.length) {
+                                            slideIndex <%= c.id %> = 1
+
+                                        }
+                                        if (n <%= c.id %> < 1) {
+                                            slideIndex <%= c.id %> = x <%= c.id %>.length
+                                        }
+                                        for (i <%= c.id %> = 0; i <%= c.id %> < x <%= c.id %>.length; i <%= c.id %>++) {
+                                            x <%= c.id %> [i <%= c.id %>].style.display = "none";
+                                        }
+                                        x <%= c.id %> [slideIndex <%= c.id %> - 1].style.display = "block";
+                                    }
+                                </script>
+
+
+
+
+                                <div class="modal fade product_view " id="<%= c.id %>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                            <div class="modal-body">
+
+
+                                                <div class="w3-content w3-display-container">
+                                                    <% i = 0 %>
+                                                        <% for (i = 0; i < c.numero_fotos; i++ ) { %>
+                                                            <% if (i == 0) { %>
+                                                                <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%;">
+                                                                <% } else { %>
+                                                                    <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%; display:none;">
+                                                                    <% } %>
+                                                                        <% } %>
+                                                                            <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.id %>(-1)">&#10094;</button>
+                                                                            <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.id %>(1)">&#10095;</button>
                                                 </div>
 
-
-
-                                                <div class="form-group">
-                                                    <input class="form-control sortKm" id="sortKmInf" placeholder="minKm" type="text" style="float: left">
-                                                    <input class="form-control sortKm" id="sortKmSuper" placeholder="maxKm" type="text" style="float:right">
+                                                </br>
+                                                <div class="card-block">
+                                                    <h4 class="card-title">
+                                                        <%= c.marca %>
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        <%= c.modelo  %>
+                                                    </p>
                                                 </div>
-
-                                                <div class="form-group">
-                                                    <label for="contain">Modelo</label>
-                                                    <input class="form-control" id="modelo" placeholder="Modelo" type="text" />
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">
+                                                        <%= c.km %> Km </li>
+                                                    <li class="list-group-item">
+                                                        <%= c.cilindrada %> cc</li>
+                                                    <li class="list-group-item">
+                                                        <%= c.cv %> cavalos</li>
+                                                </ul>
+                                                <div class="card-block">
+                                                    <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
+                                                    <h4 style="padding-top: 10px;display: inline-flex; float:right">
+                                                        <%= c.valor_venda %>
+                                                    </h4>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                                </button>
-                                            </form>
+                                                <li style="width:50%;">
+                                                    <span data-toggle="modal" data-target="#<%= c.id %>">
+
+                                                </li>
+
+
+
+
+
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <button type="button" class="btn btn-primary">
-                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                    </button>
-
-
                                 </div>
-                            </div>
-                        </div>
+                                <% } %>
+                                    <% } %>
                     </div>
-                </div>
-            </div>
+                    <div id="vendidos" class="row" style="display: none">
+                        <% for (var c of data) { %>
+                            <% if (c.ativo == 0) { %>
+                                <div class="col-md-3" style="padding-right: 5px;" data-toggle="modal" data-target="#<%= c.id %>">
+                                    <div class="card">
+                                        <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
 
 
+                                        <div class="card-block">
+                                            <h4 class="card-title">
+                                                <%= c.marca %>
+                                            </h4>
+                                            <p class="card-text">
+                                                <%= c.modelo  %>
+                                            </p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <%= c.km %> Km </li>
+                                            <li class="list-group-item">
+                                                <%= c.cilindrada %> cc</li>
+                                            <li class="list-group-item">
+                                                <%= c.cv %> cavalos</li>
+                                        </ul>
+                                        <div class="card-block">
+                                            <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
+                                            <h4 style="padding-top: 10px;display: inline-flex; float:right">
+                                                <%= c.valor_venda %>
+                                            </h4>
+                                        </div>
 
-
-
-
-            <section id="main-cards">
-
-                <div id="nao_vendidos" class="row grid">
-
-                    <% for (var c of data) { %>
-                        <% if (c.ativo == 1) { %>
-                            <div class="col-md-3 grid-item" style="padding-right: 5px;" data-toggle="modal" data-target="#<%= c.id %>">
-                                <div class="card">
-                                    <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
-
-
-                                    <div class="card-block">
-                                        <h4 class="card-title">
-                                            <%= c.marca %>
-                                        </h4>
-                                        <p class="card-text">
-                                            <%= c.modelo  %>
-                                        </p>
                                     </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item km">
-                                            <%= c.km %> Km </li>
-                                        <li class="list-group-item cilindrada">
-                                            <%= c.cilindrada %> cc</li>
-                                        <li class="list-group-item cavalagem">
-                                            <%= c.cv %> cavalos</li>
-                                    </ul>
-                                    <div class="card-block">
-                                        <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
-                                        <h4 class="price" style="padding-top: 10px;display: inline-flex; float:right">
-                                            <%= c.valor_venda %>
-                                        </h4>
-                                    </div>
-
                                 </div>
 
-                            </div>
 
+                                <script>
+                                    var slideIndex <%= c.id %> = 1;
+                                    showDivs <%= c.id %> (slideIndex <%= c.id %>.style.display = "block");
 
-
-                            <script>
-                                var slideIndex <%= c.id %> = 1;
-                                showDivs <%= c.id %> (slideIndex <%= c.id %>.style.display = "block");
-
-                                function plusDivs <%= c.id %> (n <%= c.id %>) {
-                                    showDivs <%= c.id %> (slideIndex <%= c.id %> += n <%= c.id %>);
-                                }
-
-                                function showDivs <%= c.id %> (n <%= c.id %>) {
-                                    var i <%= c.id %>;
-                                    var x <%= c.id %> = document.getElementsByClassName("<%= c.id %>");
-
-                                    if (n <%= c.id %> > x <%= c.id %>.length) {
-                                        slideIndex <%= c.id %> = 1
-
+                                    function plusDivs <%= c.id %> (n <%= c.id %>) {
+                                        showDivs <%= c.id %> (slideIndex <%= c.id %> += n <%= c.id %>);
                                     }
-                                    if (n <%= c.id %> < 1) {
-                                        slideIndex <%= c.id %> = x <%= c.id %>.length
+
+                                    function showDivs <%= c.id %> (n <%= c.id %>) {
+                                        var i <%= c.id %>;
+                                        var x <%= c.id %> = document.getElementsByClassName("<%= c.id %>");
+
+                                        if (n <%= c.id %> > x <%= c.id %>.length) {
+                                            slideIndex <%= c.id %> = 1
+
+                                        }
+                                        if (n <%= c.id %> < 1) {
+                                            slideIndex <%= c.id %> = x <%= c.id %>.length
+                                        }
+                                        for (i <%= c.id %> = 0; i <%= c.id %> < x <%= c.id %>.length; i <%= c.id %>++) {
+                                            x <%= c.id %> [i <%= c.id %>].style.display = "none";
+                                        }
+                                        x <%= c.id %> [slideIndex <%= c.id %> - 1].style.display = "block";
                                     }
-                                    for (i <%= c.id %> = 0; i <%= c.id %> < x <%= c.id %>.length; i <%= c.id %>++) {
-                                        x <%= c.id %> [i <%= c.id %>].style.display = "none";
-                                    }
-                                    x <%= c.id %> [slideIndex <%= c.id %> - 1].style.display = "block";
-                                }
-                            </script>
+                                </script>
 
 
 
+                                <div class="modal fade product_view " id="<%= c.id %>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
 
-                            <div class="modal fade product_view " id="<%= c.id %>">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <div class="modal-body">
+                                            <div class="modal-body">
 
 
-                                            <div class="w3-content w3-display-container">
-                                                <% i = 0 %>
-                                                    <% for (i = 0; i < c.numero_fotos; i++ ) { %>
-                                                        <% if (i == 0) { %>
-                                                            <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%;">
-                                                            <% } else { %>
-                                                                <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%; display:none;">
-                                                                <% } %>
+                                                <div class="w3-content w3-display-container">
+                                                    <% i = 0 %>
+                                                        <% for (i = 0; i < c.numero_fotos; i++ ) { %>
+                                                            <% if (i == 0) { %>
+                                                                <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%;">
+                                                                <% } else { %>
+                                                                    <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%; display:none;">
                                                                     <% } %>
-                                                                        <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.id %>(-1)">&#10094;</button>
-                                                                        <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.id %>(1)">&#10095;</button>
+                                                                        <% } %>
+                                                                            <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.id %>(-1)">&#10094;</button>
+                                                                            <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.id %>(1)">&#10095;</button>
+                                                </div>
+
+                                                </br>
+                                                <div class="card-block">
+                                                    <h4 class="card-title">
+                                                        <%= c.marca %>
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        <%= c.modelo  %>
+                                                    </p>
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">
+                                                        <%= c.km %> Km </li>
+                                                    <li class="list-group-item">
+                                                        <%= c.cilindrada %> cc</li>
+                                                    <li class="list-group-item">
+                                                        <%= c.cv %> cavalos</li>
+                                                </ul>
+                                                <div class="card-block">
+                                                    <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
+                                                    <h4 style="padding-top: 10px;display: inline-flex; float:right">
+                                                        <%= c.valor_venda %>
+                                                    </h4>
+                                                </div>
+                                                <li style="width:50%;">
+                                                    <span data-toggle="modal" data-target="#<%= c.id %>">
+
+                                                </li>
+
+
+
+
+
                                             </div>
-
-                                            </br>
-                                            <div class="card-block">
-                                                <h4 class="card-title">
-                                                    <%= c.marca %>
-                                                </h4>
-                                                <p class="card-text">
-                                                    <%= c.modelo  %>
-                                                </p>
-                                            </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <%= c.km %> Km </li>
-                                                <li class="list-group-item">
-                                                    <%= c.cilindrada %> cc</li>
-                                                <li class="list-group-item">
-                                                    <%= c.cv %> cavalos</li>
-                                            </ul>
-                                            <div class="card-block">
-                                                <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
-                                                <h4 style="padding-top: 10px;display: inline-flex; float:right">
-                                                    <%= c.valor_venda %>
-                                                </h4>
-                                            </div>
-                                            <li style="width:50%;">
-                                                <span data-toggle="modal" data-target="#<%= c.id %>">
-
-                                            </li>
-
-
-
-
-
                                         </div>
                                     </div>
-                                </div>
 
-                            </div>
-                            <% } %>
+                                </div>
                                 <% } %>
-                </div>
-                <div id="vendidos" class="row" style="display: none">
-                    <% for (var c of data) { %>
-                        <% if (c.ativo == 0) { %>
-                            <div class="col-md-3" style="padding-right: 5px;" data-toggle="modal" data-target="#<%= c.id %>">
-                                <div class="card">
-                                    <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
+                                    <% } %>
 
-
-                                    <div class="card-block">
-                                        <h4 class="card-title">
-                                            <%= c.marca %>
-                                        </h4>
-                                        <p class="card-text">
-                                            <%= c.modelo  %>
-                                        </p>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <%= c.km %> Km </li>
-                                        <li class="list-group-item">
-                                            <%= c.cilindrada %> cc</li>
-                                        <li class="list-group-item">
-                                            <%= c.cv %> cavalos</li>
-                                    </ul>
-                                    <div class="card-block">
-                                        <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
-                                        <h4 style="padding-top: 10px;display: inline-flex; float:right">
-                                            <%= c.valor_venda %>
-                                        </h4>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <script>
-                                var slideIndex <%= c.id %> = 1;
-                                showDivs <%= c.id %> (slideIndex <%= c.id %>.style.display = "block");
-
-                                function plusDivs <%= c.id %> (n <%= c.id %>) {
-                                    showDivs <%= c.id %> (slideIndex <%= c.id %> += n <%= c.id %>);
-                                }
-
-                                function showDivs <%= c.id %> (n <%= c.id %>) {
-                                    var i <%= c.id %>;
-                                    var x <%= c.id %> = document.getElementsByClassName("<%= c.id %>");
-
-                                    if (n <%= c.id %> > x <%= c.id %>.length) {
-                                        slideIndex <%= c.id %> = 1
-
-                                    }
-                                    if (n <%= c.id %> < 1) {
-                                        slideIndex <%= c.id %> = x <%= c.id %>.length
-                                    }
-                                    for (i <%= c.id %> = 0; i <%= c.id %> < x <%= c.id %>.length; i <%= c.id %>++) {
-                                        x <%= c.id %> [i <%= c.id %>].style.display = "none";
-                                    }
-                                    x <%= c.id %> [slideIndex <%= c.id %> - 1].style.display = "block";
-                                }
-                            </script>
-
-
-
-                            <div class="modal fade product_view " id="<%= c.id %>">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <div class="modal-body">
-
-
-                                            <div class="w3-content w3-display-container">
-                                                <% i = 0 %>
-                                                    <% for (i = 0; i < c.numero_fotos; i++ ) { %>
-                                                        <% if (i == 0) { %>
-                                                            <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%;">
-                                                            <% } else { %>
-                                                                <img class="<%= c.id %>" src="/public/img/<%= c.chassi %>-<%= i %>.png" style="width:100%; display:none;">
-                                                                <% } %>
-                                                                    <% } %>
-                                                                        <button class="w3-button w3-black w3-display-left" onclick="plusDivs<%= c.id %>(-1)">&#10094;</button>
-                                                                        <button class="w3-button w3-black w3-display-right" onclick="plusDivs<%= c.id %>(1)">&#10095;</button>
-                                            </div>
-
-                                            </br>
-                                            <div class="card-block">
-                                                <h4 class="card-title">
-                                                    <%= c.marca %>
-                                                </h4>
-                                                <p class="card-text">
-                                                    <%= c.modelo  %>
-                                                </p>
-                                            </div>
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <%= c.km %> Km </li>
-                                                <li class="list-group-item">
-                                                    <%= c.cilindrada %> cc</li>
-                                                <li class="list-group-item">
-                                                    <%= c.cv %> cavalos</li>
-                                            </ul>
-                                            <div class="card-block">
-                                                <h4 style="padding-top: 10px;display: inline-flex; float:left">PVP</h4>
-                                                <h4 style="padding-top: 10px;display: inline-flex; float:right">
-                                                    <%= c.valor_venda %>
-                                                </h4>
-                                            </div>
-                                            <li style="width:50%;">
-                                                <span data-toggle="modal" data-target="#<%= c.id %>">
-
-                                            </li>
+                    </div>
+                </section>
 
 
 
 
+                <section id="list_vendidos" style="display:none">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                            <div class="x_panel">
 
-                                        </div>
-                                    </div>
-                                </div>
+                                <div class="x_content">
+                                    <table class="table table-striped" id='tabela'>
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome</th>
+                                                <th>Chassi</th>
+                                                <th>Km</th>
+                                                <th>Cilindrada</th>
+                                                <th>CV</th>
+                                                <th>Valor_Compra</th>
+                                                <th>Valor_venda</th>
+                                                <th>Despesas</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for (var c of data) { %>
+                                                <% if (c.ativo == 0) { %>
 
-                            </div>
-                            <% } %>
-                                <% } %>
-
-                </div>
-            </section>
-
-
-
-
-            <section id="list_vendidos" style="display:none">
-                <div class="row">
-                    <div class="col-md-12 col-sm-6 col-xs-12">
-                        <div class="x_panel">
-
-                            <div class="x_content">
-                                <table class="table table-striped" id='tabela'>
-                                    <thead>
-                                        <tr>
-                                            <th>Matricula</th>
-                                            <th>Nome</th>
-                                            <th>Chassi</th>
-                                            <th>Km</th>
-                                            <th>Cilindrada</th>
-                                            <th>CV</th>
-                                            <th>Valor_Compra</th>
-                                            <th>Valor_venda</th>
-                                            <th>Despesas</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% for (var c of data) { %>
-                                            <% if (c.ativo == 0) { %>
-
-                                                <tr>
-                                                    <td>
-                                                        <a href="/veiculos/<%= c.matricula %>">
-                                                            <%= c.matricula %>
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.nome %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.chassi %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.km %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.cilindrada %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.cv %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.valor_compra%>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.valor_venda%>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.despesas%>
-                                                    </td>
-                                                </tr>
-                                                <%} %>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="/veiculos/<%= c.matricula %>">
+                                                                <%= c.matricula %>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.nome %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.chassi %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.km %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.cilindrada %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.cv %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.valor_compra%>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.valor_venda%>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.despesas%>
+                                                        </td>
+                                                    </tr>
                                                     <%} %>
-                                    </tbody>
-                                </table>
-                                <a href="/veiculos/createveiculos">
-                                    <button type="submit" class="btn btn-success" id="toggler">Adicionar Veiculo</button>
-                                </a>
+                                                        <%} %>
+                                        </tbody>
+                                    </table>
+                                    <a href="/veiculos/createveiculos">
+                                        <button type="submit" class="btn btn-success" id="toggler">Adicionar Veiculo</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
 
-            <section id="list_nao_vendidos" style="display:none">
-                <div class="row">
-                    <div class="col-md-12 col-sm-6 col-xs-12">
-                        <div class="x_panel">
+                <section id="list_nao_vendidos" style="display:none">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                            <div class="x_panel">
 
-                            <div class="x_content">
-                                <table class="table table-striped" id='tabela'>
-                                    <thead>
-                                        <tr>
-                                            <th>Matricula</th>
-                                            <th>Nome</th>
-                                            <th>Chassi</th>
-                                            <th>Km</th>
-                                            <th>Cilindrada</th>
-                                            <th>CV</th>
-                                            <th>Valor_Compra</th>
-                                            <th>Valor_venda</th>
-                                            <th>Despesas</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% for (var c of data) { %>
-                                            <% if (c.ativo == 1) { %>
-                                                <tr>
-                                                    <td>
-                                                        <a href="/veiculos/<%= c.matricula %>">
-                                                            <%= c.matricula %>
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.nome %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.chassi %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.km %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.cilindrada %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.cv %>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.valor_compra%>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.valor_venda%>
-                                                    </td>
-                                                    <td>
-                                                        <%= c.despesas%>
-                                                    </td>
-                                                </tr>
-                                                <%} %>
-                                                    <% } %>
-                                    </tbody>
-                                </table>
-                                <a href="/veiculos/createveiculos">
-                                    <button type="submit" class="btn btn-success" id="toggler">Adicionar Veiculo</button>
-                                </a>
+                                <div class="x_content">
+                                    <table class="table table-striped" id='tabela'>
+                                        <thead>
+                                            <tr>
+                                                <th>Matricula</th>
+                                                <th>Nome</th>
+                                                <th>Chassi</th>
+                                                <th>Km</th>
+                                                <th>Cilindrada</th>
+                                                <th>CV</th>
+                                                <th>Valor_Compra</th>
+                                                <th>Valor_venda</th>
+                                                <th>Despesas</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for (var c of data) { %>
+                                                <% if (c.ativo == 1) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="/veiculos/<%= c.matricula %>">
+                                                                <%= c.matricula %>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.nome %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.chassi %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.km %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.cilindrada %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.cv %>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.valor_compra%>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.valor_venda%>
+                                                        </td>
+                                                        <td>
+                                                            <%= c.despesas%>
+                                                        </td>
+                                                    </tr>
+                                                    <%} %>
+                                                        <% } %>
+                                        </tbody>
+                                    </table>
+                                    <a href="/veiculos/createveiculos">
+                                        <button type="submit" class="btn btn-success" id="toggler">Adicionar Veiculo</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
-    </div>
-    <!-- /# row -->
-    </section>
+        <!-- /# row -->
+        </section>
 
 
 

@@ -299,22 +299,23 @@
         })
 
     })
+    var prices = 0;
 
     $("#marca").keyup(function () {
         var marca = $("#marca").val()
-        console.log(mySlider.getValue()
-    )
+   
         $('.card').show();
 
 
-
+      
         $grid.isotope({
             filter: function () {
                 var marca2 = $(this).find('.card-title').text();
                 return marca2.match(marca);
             }
         })
-       
+
+        
     });
 
     $("#modelo").keyup(function () {
@@ -361,7 +362,6 @@
     
     
     }
-   var prices = 0;
 
 
     $('#collapseDiv').on('shown.bs.collapse', function() {

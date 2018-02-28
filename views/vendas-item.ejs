@@ -1,15 +1,4 @@
 <% include partials/header%>
-
-
-
-
-
-
-
-
-
-
-
   <div class="content-wrap">
     <div class="main">
       <div class="container-fluid">
@@ -24,53 +13,36 @@
             </div>
           </div>
         </div>
-
-
-
-
-
         <section id="main-content">
-       
-
-
             <div class="right_col" role="main">
               <div class="">
                 <div class="page-title">
                   <div class="title_left">
                   </div>
-          
-          
                 </div>
                 <div class="clearfix"></div>
-          
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                       <div class="x_title">
                         <h2> Vendas
-                         
                         </h2>
                         <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
-          
                         <form action="/vendas/create" method="post" class="form-horizontal form-label-left"
                           novalidate>
-          
                           <span class="section"></span>
                           <br>
-                          <select class="form-control" id="nome" name="comprador">
+                          <select class="form-control" id="userSel" name="comprador" onchange="filter()" >
                             <option>Selecione um Cliente</option>
                             <% for (var c of clientes) { %>
                               <option value="<%= c.nif %>" > <%= c.nome %></option>
-                              
                             <% } %>
-                            
                           </select>
                             <br>
-                            
                             <div class="item form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Selecione o  veiculo<span class="required">*</span>
+                              <label class="control-label col-md-2 col-sm-6 col-xs-12" for="tituloS">Selecione o  veiculo<span class="required">*</span>
                               </label>
                               <select class="form-control" id="matricula" name="matricula">
                                 <option>Selecione um Veiculo</option>
@@ -115,13 +87,35 @@
               </div>
             </div>
 
+            <script>
+              
+         
+          function filter(){
+            var selected = $('#userSel').val();
+
+            <% for (var c of clientes){ %>
+
+              
+               if (<%= c.nif %> == selected){ 
+
+                         alert(selected)
+
+             } 
+
+
+
+         <%   } %>
+
+
+          }
 
 
 
 
 
-
-            
+              
+            </script>
+          
           <!-- /# row -->
         </section>
       </div>

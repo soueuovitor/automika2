@@ -294,8 +294,15 @@ hr {
 }
 /* Gallery Section */
 #listagem {
-	padding: 120px 0;
-	background: #f6f6f6;
+	width: 100%;
+	background: LightGrey ;
+	
+}
+#listagem h1 {
+	 margin-left: 100px;
+}
+section.main-cards{
+	color: red;
 }
 .categories {
 	padding-bottom: 30px;

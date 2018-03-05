@@ -46,6 +46,27 @@
                               </select>
                             </div>
                           </div>
+                          <div class="item form-group" id="div">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nif"><span class="required"></span>
+                            </label>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                              <input type="text" id="nif" class="form-control col-md-4 col-xs-12">
+                            </div>
+                          </div>
+                          <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cc"><span class="required"></span>
+                            </label>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                              <input type="text" id="cc" class="form-control col-md-4 col-xs-12">
+                            </div>
+                          </div>
+                          <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="morada"><span class="required"></span>
+                            </label>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                              <input type="text" id="morada" class="form-control col-md-4 col-xs-12">
+                            </div>
+                          </div>
                             <br>
                             <div class="item form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Selecione o  veiculo<span class="required">*</span>
@@ -105,16 +126,12 @@
 
               
                if (<%= c.nif %> == selected){ 
-
-                         alert(selected)
-
+                 
+                        document.getElementById("nif").value = "<%= c.nif %>";
+                        document.getElementById("cc").value = "<%= c.cc %>";
+                        document.getElementById("morada").value = "<%= c.morada %>";
              } 
-
-
-
-         <%   } %>
-
-
+            <%   } %>
           }
 
 

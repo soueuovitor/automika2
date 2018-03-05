@@ -171,7 +171,74 @@
     /*  pace Loader
     -------------*/
 
+    var prices = [0, 100000];
     var opened = 0;
+    function filterPrice(preco) {
+        var modelo = $("#modelo").val()
+        var marca = $("#marca").val();
+
+        /*
+         $('.card').show();
+           // get the value of the input, which we filter on
+             $('.col-md-3').find(".card-text:not(:contains(" + modelo + "))").parent().parent().parent().slideUp();
+             (($('.col-md-3').find(".card-text:contains(" + modelo + ")"))($('.col-md-3').find(".card-title:contains(" + marca + ")"))).parent().parent().parent().slideDown();
+         
+        */
+
+
+        $grid.isotope({
+            filter: function () {
+
+            }
+        })
+      
+        $grid.isotope({
+            filter: function () {
+
+                var string = preco.toString();
+                var precos = string.split(",");
+                prices = precos;
+                var precoMaior2 = parseInt($(this).find('.price').text());
+
+                var precoMenor2 = parseInt($(this).find('.price').text());
+                var marca2 = $(this).find('.card-title').text();
+                var modelo2 = $(this).find('.card-text').text();
+                return (precoMenor2 >= precos[0] && precoMaior2 <= precos[1])&&(marca2.match(marca) && modelo2.match(modelo));
+
+                
+            }
+        })
+
+
+    }
+
+
+
+
+    $('#collapseDiv').on('shown.bs.collapse', function () {
+        if (opened == 0) {
+            opened = 1;
+             mySlider = new rSlider({
+
+                target: '#slider2',
+
+                values: {
+                    min: 0,
+                    max: 100000
+                },
+
+                step: 1000,
+                range: true,
+                scale: true,
+                labels: false,
+                
+                onChange: (function (values) {
+                    filterPrice(values)
+                })
+            });
+        }
+    })
+
 
 
 
@@ -249,69 +316,24 @@
     });
 
 
-
-
-    $("#sortKmInf").keyup(function () {
-        var kmMenor = parseInt($('#sortKmInf').val());
-        $('.card').show();
-
-
-
-        $grid.isotope({
-            filter: function () {
-
-
-
-                if (isNaN(kmMenor)) {
-                    kmMenor = 0;
-
-                }
-
-
-                var kmMenor2 = parseInt($(this).find('.km').text());
-
-
-                return kmMenor2 >= kmMenor;
-
-            }
-        })
-    });
-
-    $("#sortKmSuper").keyup(function () {
-
-        var kmMaior = parseInt($('#sortKmSuper').val());
-
-        $grid.isotope({
-            filter: function () {
-
-
-                if (isNaN(kmMaior)) {
-                    kmMaior = 1000000000;
-
-                }
-
-                var kmMenor2 = parseInt($(this).find('.km').text());
-
-
-                return kmMenor2 <= kmMaior;
-
-            }
-        })
-
-    })
-    var prices = 0;
-
     $("#marca").keyup(function () {
+        
+
+
         var marca = $("#marca").val()
 
         $('.card').show();
 
-
+        var precos = prices;
 
         $grid.isotope({
             filter: function () {
+                var precoMaior2 = parseInt($(this).find('.price').text());
+
+                var precoMenor2 = parseInt($(this).find('.price').text());
+        
                 var marca2 = $(this).find('.card-title').text();
-                return marca2.match(marca);
+                return (precoMenor2 >= precos[0] && precoMaior2 <= precos[1])&&marca2.match(marca);
             }
         })
 
@@ -329,65 +351,26 @@
              $('.col-md-3').find(".card-text:not(:contains(" + modelo + "))").parent().parent().parent().slideUp();
              (($('.col-md-3').find(".card-text:contains(" + modelo + ")"))($('.col-md-3').find(".card-title:contains(" + marca + ")"))).parent().parent().parent().slideDown();
          
-             */
+        */
+       var precos = prices;
 
 
         $grid.isotope({
             filter: function () {
+                var precoMaior2 = parseInt($(this).find('.price').text());
+
+                var precoMenor2 = parseInt($(this).find('.price').text());
+        
                 var marca2 = $(this).find('.card-title').text();
                 var modelo2 = $(this).find('.card-text').text();
-                return marca2.match(marca) && modelo2.match(modelo);
+                return (precoMenor2 >= precos[0] && precoMaior2 <= precos[1])&&(marca2.match(marca) && modelo2.match(modelo));
             }
         })
     });
 
-    function filterPrice(preco) {
 
-        prices = preco;
-        $grid.isotope({
-            filter: function () {
+     
 
-                var string = preco.toString();
-                var precos = string.split(",");
-
-                var precoMaior2 = parseInt($(this).find('.price').text());
-
-                var precoMenor2 = parseInt($(this).find('.price').text());
-
-                return precoMenor2 >= precos[0] && precoMaior2 <= precos[1];
-
-                
-            }
-        })
-
-
-    }
-
-
-    $('#collapseDiv').on('shown.bs.collapse', function () {
-        if (opened == 0) {
-            opened = 1;
-            var mySlider = new rSlider({
-
-                target: '#slider2',
-
-                values: {
-                    min: 0,
-                    max: 100000
-                },
-
-                step: 1000,
-                range: true,
-                scale: true,
-                labels: false,
-
-                onChange: (function (values) {
-                    filterPrice(values)
-                })
-            });
-        }
-    })
-
-
+    
 
 })(jQuery);

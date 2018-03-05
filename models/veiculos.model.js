@@ -25,7 +25,7 @@ list(callback) {
 		});
 	},
 	dropdown(callback) {
-		var sql = 'SELECT matricula from veiculos';
+		var sql = 'SELECT matricula, chassi, marca, modelo from veiculos where ativo = 1';
 		global.connection.query(sql, function(error, rows, fields){
 			if (error) throw error;
 			callback(rows);

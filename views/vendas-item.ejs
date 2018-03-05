@@ -38,7 +38,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Selecione o  cliente<span class="required">*</span>
                             </label>
                             <div class="col-md-4 col-sm-6 col-xs-12">
-                              <select class="form-control" id="userSel" name="comprador" onchange="filter()" >
+                              <select class="form-control" id="userSel" name="comprador" onchange="filterCliente()" >
                                 <option>Selecione um Cliente</option>
                                 <% for (var c of clientes) { %>
                                   <option value="<%= c.nif %>" > <%= c.nome %></option>
@@ -72,7 +72,7 @@
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Selecione o  veiculo<span class="required">*</span>
                               </label>
                               <div class="col-md-4 col-sm-6 col-xs-12">
-                                <select class="form-control" id="matricula" name="matricula">
+                                <select class="form-control" id="carSel" name="carSel" onchange="filterVeiculo()">
                                   <option>Selecione um Veiculo</option>
                                   <% for (var v of veiculos) { %>
                                     <option value="<%= v.matricula %>" ><%= v.matricula %></option>
@@ -80,12 +80,33 @@
                                 </select>
                               </div>
                             </div>
+                            <div class="item form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="chassi"><span class="required"></span>
+                              </label>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="text" id="chassi" class="form-control col-md-4 col-xs-12">
+                              </div>
+                            </div>
+                            <div class="item form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marca"><span class="required"></span>
+                              </label>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="text" id="marca" class="form-control col-md-4 col-xs-12">
+                              </div>
+                            </div>
+                            <div class="item form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo"><span class="required"></span>
+                              </label>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="text" id="modelo" class="form-control col-md-4 col-xs-12">
+                              </div>
+                            </div>
                           <br>
                           <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Preço de Venda<span class="required">*</span>
                             </label>
                             <div class="col-md-4 col-sm-6 col-xs-12">
-                              <input class="form-control col-md-7 col-xs-12" id="preco" name="preco" type="text">
+                              <input class="form-control col-md-7 col-xs-12" id="preco" name="preco" type="text" required>
                             </div>
                         </div>
                           <div class="ln_solid"></div>
@@ -116,28 +137,39 @@
               </div>
             </div>
 
-            <script>
-              
-         
-          function filter(){
-            var selected = $('#userSel').val();
+            <script>  
 
-            <% for (var c of clientes){ %>
+            
+              function filterVeiculo(){               
+                  var carSelect = $('#carSel').val();
+                  alert("<%= v.matricula %>")
 
-              
-               if (<%= c.nif %> == selected){ 
-                 
-                        document.getElementById("nif").value = "<%= c.nif %>";
-                        document.getElementById("cc").value = "<%= c.cc %>";
-                        document.getElementById("morada").value = "<%= c.morada %>";
-             } 
-            <%   } %>
-          }
+                  <% for (var v of veiculos){ %>
+                  alert("<%= v.matricula %>")
 
+                    if ("<%= v.matricula %>" == carSelect){ 
+                      alert("<%= v.chassi %>")
+                      
+                              document.getElementById("chassi").value = "<%= v.chassi %>";
+                              document.getElementById("marca").value = "<%= v.marca %>";
+                              document.getElementById("modelo").value = "<%= v.modelo %>";
+                    } 
+                  <% } %>
+              }
+            
+              function filterCliente(){
+                var selected = $('#userSel').val();
 
+                <% for (var c of clientes){ %>
 
-
-
+                  if (<%= c.nif %> == selected){ 
+                    
+                            document.getElementById("nif").value = "<%= c.nif %>";
+                            document.getElementById("cc").value = "<%= c.cc %>";
+                            document.getElementById("morada").value = "<%= c.morada %>";
+                } 
+                <%   } %>
+              }
               
             </script>
           

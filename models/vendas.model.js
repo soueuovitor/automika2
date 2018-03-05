@@ -25,13 +25,12 @@ module.exports = {
 
 
 	create(data, callback) {
-		var sql = "INSERT INTO vendas (comprador, carro) VALUES (?,?)";
+		var sql = "INSERT INTO vendas (comprador, carro, preco) VALUES (?,?,?)";
 		global.connection.query(
-			sql, [data.comprador, data.carro ],
+			sql, [data.comprador, data.carro, data.preco ],
 			function (error, rows, fields) {
 				if (error) throw error;
                 callback(rows[0]);
-                console.log(data.comprador , data.matricula);
 			});
 	},
 

@@ -1,6 +1,6 @@
 const model = require('../models/vendas.model');
 const cli = require('../models/clientes.model');
-const vei = require('../models/vendas.model');
+const vei = require('../models/veiculos.model');
 const express = require('express');
 const router = express.Router();
 
@@ -31,11 +31,13 @@ router.get('/create',global.secure('admin'), function(request, response) {
 
 router.post('/create', function(request, response) {
 
-	console.log(request.body.comprador)
 	var data = {
 		'comprador' : request.body.comprador,
-		'carro' : request.body.matricula		
+		'carro' : request.body.carSel,
+		'preco' : request.body.preco	
 	};
+
+	console.log(data.comprador , data.carro, data.preco);
 		model.create(data, function () {
 			model.updatecarro(data, function(){});
 			response.redirect('/vendas')

@@ -171,8 +171,8 @@
     /*  pace Loader
     -------------*/
 
+    var opened = 0;
 
-    
 
 
     var $grid = $('.grid').isotope({
@@ -303,11 +303,11 @@
 
     $("#marca").keyup(function () {
         var marca = $("#marca").val()
-   
+
         $('.card').show();
 
 
-      
+
         $grid.isotope({
             filter: function () {
                 var marca2 = $(this).find('.card-title').text();
@@ -315,7 +315,7 @@
             }
         })
 
-        
+
     });
 
     $("#modelo").keyup(function () {
@@ -341,8 +341,8 @@
         })
     });
 
-    function km(preco){
-    
+    function filterPrice(preco) {
+
         prices = preco;
         $grid.isotope({
             filter: function () {
@@ -351,35 +351,43 @@
                 var precos = string.split(",");
 
                 var precoMaior2 = parseInt($(this).find('.price').text());
-    
+
                 var precoMenor2 = parseInt($(this).find('.price').text());
-               
-                console.log(precoMenor2>=precos[0]&&precoMaior2<=precos[1])
-                return precoMenor2>=precos[0]&&precoMaior2<=precos[1];
-    
+
+                return precoMenor2 >= precos[0] && precoMaior2 <= precos[1];
+
+                
             }
         })
-    
-    
+
+
     }
 
 
-    $('#collapseDiv').on('shown.bs.collapse', function() {
-        var mySlider = new rSlider({
-    
-            target: '#slider2',
-            
-            values: {min: 0, max: 100000},
-            
-            step: 1000,
-            range: true,
-            scale: true,
-            labels: false,
-            
-            onChange: (function (values) { 
-                km(values)  })
-        });
-      })
-    
-})(jQuery);
+    $('#collapseDiv').on('shown.bs.collapse', function () {
+        if (opened == 0) {
+            opened = 1;
+            var mySlider = new rSlider({
 
+                target: '#slider2',
+
+                values: {
+                    min: 0,
+                    max: 100000
+                },
+
+                step: 1000,
+                range: true,
+                scale: true,
+                labels: false,
+
+                onChange: (function (values) {
+                    filterPrice(values)
+                })
+            });
+        }
+    })
+
+
+
+})(jQuery);

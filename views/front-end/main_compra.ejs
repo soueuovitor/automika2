@@ -93,15 +93,13 @@
                                 
                             }*/
                         </style>
-                        
     
                     <section id="main-cards">
                         <div>
                             
                             <% for (var c of data) { %>
                                 <% if (c.ativo == 1) { %>
-                                    <div class="col-md-3" style="padding-right: 5px;"  data-target="/main/<%= c.matricula %>" >
-                                        <a href="/main/<%= c.matricula %>">
+                                    <div class="col-md-3" style="padding-right: 5px;"  data-target="#<%= c.id %>" href="/main/<%= c.matricula %>">
                                         <div class="card">
                                                 <div class="card-price">
                                                 <h4 style="margin-top: 3px;font-size: 20px; text-align: center;">Preço de venda: <small><%= c.valor_venda %> €  </small></h4>
@@ -128,10 +126,10 @@
                                                     <%= c.cv %> cavalos</li>
                                                    
                                             </ul>
+                                            <button href="/main/<%= c.matricula %>" ></button>
                                            
     
                                         </div>
-                                    </a>
     
                                     </div>
                                     <div class="modal fade product_view " id="<%= c.id %>">

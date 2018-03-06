@@ -1,26 +1,4 @@
 <% include partials/header%>
-  <div class="content-wrap">
-    <div class="main">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-8 p-r-0 title-margin-right">
-            <div class="page-header">
-              <div class="page-title">
-                <h1>Listagem
-                  <span>dos Clientes</span>
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
-        <section id="main-content">
-            <div class="right_col" role="main">
-              <div class="">
-                <div class="page-title">
-                  <div class="title_left">
-                  </div>
-                </div>
-                <div class="clearfix"></div>
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
@@ -30,44 +8,54 @@
                         <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
-                        <form action="/vendas/create" method="post" class="form-horizontal form-label-left"
-                          novalidate>
+                        <form action="/vendas/create" method="post" class="form-horizontal form-label-left" novalidate>
                           <span class="section"></span>
                           <br>
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Selecione o  cliente<span class="required">*</span>
-                            </label>
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                              <select class="form-control" id="userSel" name="comprador" onchange="filterCliente()" >
-                                <option>Selecione um Cliente</option>
-                                <% for (var c of clientes) { %>
-                                  <option value="<%= c.nif %>" > <%= c.nome %></option>
-                                <% } %>
-                              </select>
+                          <!-- DADOS CLIENTE -->
+                          <fieldset>
+                            <legend><h5>Dados do Cliente</h5></legend>
+                            <table cellspacing="10">
+                            <div class="item form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Selecione o  cliente<span class="required">*</span>
+                              </label>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                <select class="form-control" id="userSel" name="comprador" onchange="filterCliente()" >
+                                  <option>Selecione um Cliente</option>
+                                  <% for (var c of clientes) { %>
+                                    <option value="<%= c.nif %>" > <%= c.nome %></option>
+                                  <% } %>
+                                </select>
+                              </div>
                             </div>
-                          </div>
-                          <div class="item form-group" id="div">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nif"><span class="required"></span>
-                            </label>
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                              <input type="text" id="nif" class="form-control col-md-4 col-xs-12">
+                            <div class="item form-group" id="div">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nif"> NIF:<span class="required"></span>
+                              </label>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="text" id="nif" class="form-control col-md-4 col-xs-12" disabled>
+                              </div>
                             </div>
-                          </div>
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cc"><span class="required"></span>
-                            </label>
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                              <input type="text" id="cc" class="form-control col-md-4 col-xs-12">
+                            <div class="item form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cc">Nº CC:<span class="required"></span>
+                              </label>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="text" id="cc" class="form-control col-md-4 col-xs-12"disabled>
+                              </div>
                             </div>
-                          </div>
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="morada"><span class="required"></span>
-                            </label>
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                              <input type="text" id="morada" class="form-control col-md-4 col-xs-12">
+                            <div class="item form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="morada">Morada<span class="required"></span>
+                              </label>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="text" id="morada" class="form-control col-md-4 col-xs-12"disabled>
+                              </div>
                             </div>
-                          </div>
+                            </table>
+                          </fieldset>
+                          <!-- FIM DADOS CLIENTE -->
                             <br>
+                          <!--DADOS VIATURA -->
+                          <fieldset>
+                            <legend><h5>Dados do Veiculo</h5></legend>
+                            <table cellspacing="10">
                             <div class="item form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Selecione o  veiculo<span class="required">*</span>
                               </label>
@@ -81,64 +69,62 @@
                               </div>
                             </div>
                             <div class="item form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="chassi"><span class="required"></span>
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="chassi">Chassi nº:<span class="required"></span>
                               </label>
                               <div class="col-md-4 col-sm-6 col-xs-12">
-                                <input type="text" id="chassi" class="form-control col-md-4 col-xs-12">
+                                <input type="text" id="chassi" class="form-control col-md-4 col-xs-12" disabled>
                               </div>
                             </div>
                             <div class="item form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marca"><span class="required"></span>
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marca">Marca:<span class="required"></span>
                               </label>
                               <div class="col-md-4 col-sm-6 col-xs-12">
-                                <input type="text" id="marca" class="form-control col-md-4 col-xs-12">
+                                <input type="text" id="marca" class="form-control col-md-4 col-xs-12" disabled>
                               </div>
                             </div>
                             <div class="item form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo"><span class="required"></span>
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo:<span class="required"></span>
                               </label>
                               <div class="col-md-4 col-sm-6 col-xs-12">
-                                <input type="text" id="modelo" class="form-control col-md-4 col-xs-12">
+                                <input type="text" id="modelo" class="form-control col-md-4 col-xs-12" disabled>
                               </div>
                             </div>
+                            </table>
+                          </fieldset>
+                          <!-- FIM DADOS VIATURA -->
                           <br>
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Preço de Venda<span class="required">*</span>
-                            </label>
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                              <input class="form-control col-md-7 col-xs-12" id="preco" name="preco" type="text" required>
-                            </div>
-                        </div>
+                          <fieldset>
+                          <legend><h5>Valor da Venda</h5></legend>
+                            <table cellspacing="10">
+                              <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tituloS">Preço de Venda<span class="required">*</span>
+                                </label>
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                  <input class="form-control col-md-7 col-xs-12" id="preco" name="preco" type="text" required>
+                                </div>
+                              </div>
+                            </table>
+                        </fieldset>
                           <div class="ln_solid"></div>
                           <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
                               <button class="btn btn-primary" type="button" onclick="window.open('/clientes','_self')">Cancel</button>
                               <button id="send" type="submit" class="btn btn-success">Submit</button>
-          
-                              <% if (! isNew) { %>
-                                <button type="button" class="btn btn-danger" onclick="removeRecord()">Apagar</button>
-                                <% } %>
-          
-                                  <script type="text/javascript">
-                                    function removeRecord() {
-                                      if (confirm('Deseja mesmo remover este Cliente?')) {
-                                        window.open("<%= '/clientes/' + clientes.idclientes + '/delete'%>", '_top')
-                                      }
-                                    }
-                                  </script>
-          
                             </div>
                           </div>
+                          <br>
                         </form>
+                        <button type="button" onclick="printJS('/public/DUA_modelo_unico.pdf')">
+                          Print PDF
+                       </button>
+                      
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
             <script>  
-
             
               function filterVeiculo(){               
                   var carSelect = $('#carSel').val();
@@ -172,17 +158,9 @@
               }
               
             </script>
-          
           <!-- /# row -->
         </section>
       </div>
     </div>
   </div>
-
-
-
-
-
-
-  
-  <% include partials/footer%>
+<% include partials/footer%>

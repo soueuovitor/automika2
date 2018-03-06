@@ -11,8 +11,51 @@ router.get('/', function (request, response) {
 	//console.log(request.user);
 	//console.log(request.isAuthenticated());
 	model.list(function (veiculos) {
+		var carrosPorMarca = [{}];
+
+		for (var v of veiculos) {
+
+			var numero = 0;
+			var marca = 0;
+
+			marca = v.marca;
+
+			for (c of carrosPorMarca) {
+				if (c.marca == v.marca) {
+					c.numero = c.numero + 1;
+
+
+				} else {
+
+					var i = 0;
+					for (var d of carrosPorMarca)
+						if (d.marca == v.marca) {
+							i++;
+
+
+						} else {
+
+						}
+					if (i == 0) {
+						carrosPorMarca.push({
+							'numero': 0,
+							'marca': v.marca
+						})
+
+
+
+					}
+
+
+				
+
+				}
+			}
+		}
+
 		response.set("Content-Type", "text/html");
 		response.render('veiculos-list', {
+			carrosPorMarca: carrosPorMarca,
 			data: veiculos
 		})
 	})
@@ -104,33 +147,33 @@ router.post('/create', function (request, response) {
 	form.parse(request, function (err, fields, files) {
 		var i = 0;
 		var paths = [];
-			
-			
+
+
 
 		var num_fotos = files.logo.length;
 
-		if (num_fotos <= 1){
-
-			
-				var olpath = files.logo.path;
-				var newpath = './public/img/' + fields.chassi+ '-1.png';
-					pics(oldpath, newpath);
-		}else{
+		if (num_fotos <= 1) {
 
 
-		for (var c of files.logo) {
-
-			var oldpath = c.path;
-
-			var newpath = './public/img/' + fields.chassi + '-' + i + '.png';
-
+			var olpath = files.logo.path;
+			var newpath = './public/img/' + fields.chassi + '-1.png';
 			pics(oldpath, newpath);
-			i++
+		} else {
+
+
+			for (var c of files.logo) {
+
+				var oldpath = c.path;
+
+				var newpath = './public/img/' + fields.chassi + '-' + i + '.png';
+
+				pics(oldpath, newpath);
+				i++
 
 
 
 
-		}
+			}
 
 		}
 

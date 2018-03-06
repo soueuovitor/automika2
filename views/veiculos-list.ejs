@@ -5,7 +5,14 @@
             <div class="col-lg-12" style="height:max-content;background-color: white; ">
     
                 <h1>Procurar</h1>
-                <input class="form-control" id="marca" placeholder="Marca" type="text" style="width:30%" />
+                <select class="form-control" id="marca" placeholder="Marca"  style="width:30%"  >
+                <option value="">Marca</option>
+                <% for (var c of carrosPorMarca){ %>
+                    <% if (c.marca != undefined){ %>
+                    <option value="<%= c.marca %>"><%= c.marca %> (<%= c.numero %>)</option>
+                    <% }%>
+                    <% }%>
+                </select>
                 <select class="form-control button" id="sortPrice" style="float:right">
                     <option>Ordenar Por:</option>
                     <option value="precoA">Preço Ascendente</option>

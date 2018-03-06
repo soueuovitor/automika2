@@ -316,7 +316,7 @@
     });
 
 
-    $("#marca").keyup(function () {
+    $("#marca").change(function () {
         
 
 

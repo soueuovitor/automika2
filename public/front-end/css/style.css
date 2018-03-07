@@ -603,10 +603,24 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
     border: 1px solid #e5e5e5;
     box-shadow: 0 1px 4px 0 rgba(0, 36, 56, 0.2);
 	
-}#carro .car {
+}
+#mapa  {
+	margin: -11px;
+	width: 100%;
 	
-
+    background-color: #333;
 	
+}
+#break  {
+	width: 100%;
+	margin:0px;
+    background-color: white;
+	
+}
+#break  {
+	
+	margin:10px;
+    background-color: white;
 	
 }
 /* Footer Section*/

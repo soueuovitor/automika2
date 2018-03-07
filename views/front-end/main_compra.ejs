@@ -102,59 +102,45 @@
 <div id="carro" class="text-center">
         <div class="container">
           <div class="section-title center">
-            <h2>Carro </h2>
+            <h2>
+              <%= data.marca %> 
+          </h2>
             <br>
           </div>
           <div class="container">
           <div class="col-md-3 info ">
             <div class="col-md-12">
-              <div class="contact-item"> <i class="fa fa-map-marker fa-2x"></i>
-                <p><a href="https://wego.here.com/directions/mix/mylocation/e-eyJuYW1lIjoiQXV0b01pa2EgTXVsdGltYXJjYXMsIExkYSIsImFkZHJlc3MiOiJMdWdhciBkbyBDYXJyZWdhbCwgQ2FsZGFzIERhcyBUYWlwYXMsIEJyYWdhLCBQb3J0dWdhbCIsImxhdGl0dWRlIjo0MS40ODMxNjc2NzA2OTEsImxvbmdpdHVkZSI6LTguMzUxOTE2MDc0NzUyOCwicHJvdmlkZXJOYW1lIjoiZmFjZWJvb2siLCJwcm92aWRlcklkIjoyNzU3NzE5NDI0Nzg4Njl9?map=41.48317,-8.35192,15,normal&fb_locale=pt_PT">Rua José Cardoso Vieira de Castro,<br>
-                 24 4820 Fafe, Portugal</a></p>
-              </div>
-         
+              <br>
+              
+              <ul class="list-group list-group-flush">
+                <h3><%= data.modelo  %></h3>
+                  <li class="list-group-item"  >
+                     <h4 style="margin:1px;">Km: <small><%= data.km %> Km</small></h4>  </li> 
+                <li class="list-group-item" >
+                    <h4 style="margin:1px;">Cilindrada: <small><%= data.cilindrada %> cc</small></h4>
+              </li>
+                <li class="list-group-item">
+                    <h4 style="margin:1px;">Cavalos: <small><%= data.cv %> cavalos</small></h4>
+                    </li>
+                    <li class="list-group-item">
+                        <h4 style="margin:1px;">Matricula: <small><%= data.matricula %></small></h4>
+                        </li>
+                        <li class="list-group-item">
+                            <h4 style="margin:1px;">Ano: <small><%= data.ano %></small></h4>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 style="margin:1px;">Chassi: <small><%= data.chassi %></small></h4>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4 style="margin:1px;">Combustivel: <small><%= data.combustivel  %></small></h4>
+                                    </li>
+                      </ul>
+               
+
+                      <div class="card"  style="background-color:LightGrey ; height: 60px"><h4 style="margin: 0px; color:black;">Preço: <%= data.valor_venda %>€</h4></div>
            
             
             <div class="clearfix"></div>
-          </div>
-          <div class="col-md-8 col-md-offset-2">
-            <h3>Deixe aqui a sua mensagem</h3>
-            <form name="sentMessage" id="contactForm" novalidate>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="text" id="name" class="form-control" placeholder="Nome" required="required">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                        <div class="form-group">
-                          <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-                          <p class="help-block text-danger"></p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                            <div class="form-group">
-                              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-                              <p class="help-block text-danger"></p>
-                            </div>
-                          </div>
-              </div>
-              <div class="form-group">
-                <textarea name="message" id="message" class="form-control" rows="4" placeholder="Mensagem" required></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-              
-              <div id="success"></div>
-              <button type="submit" class="btn btn-default">Enviar mensagem</button>
-            </form>
-            
           </div>
         </div>
         <div class="col-md-1">
@@ -193,11 +179,11 @@
                                                         <% for (i = 0; i < data.numero_fotos; i++ ) { %>
                                                             <% if (i == 0) { %>
                                                     <div class="col-sm-3 col-xs-6">
-                                                        <a href="#x"><img src="/public/img/<%= data.chassi %>-<%= i %>.png" onclick="currentSlide(<%= i %> - 1)" alt="Image" class="img-responsive"></a>
+                                                        <a href="#x"><img src="/public/img/<%= data.chassi %>-<%= i %>.png" onclick="currentSlide(<%= i %> )" alt="Image" class="img-responsive"></a>
                                                     </div>
                                                     <% } else { %>
                                                     <div class="col-sm-3 col-xs-6">
-                                                        <a href="#x"><img src="/public/img/<%= data.chassi %>-<%= i %>.png" onclick="currentSlide(<%= i %> - 1)" alt="Image" class="img-responsive"></a>
+                                                        <a href="#x"><img src="/public/img/<%= data.chassi %>-<%= i %>.png" onclick="currentSlide(<%= i %> )" alt="Image" class="img-responsive"></a>
                                                     </div>
                                                     
                                                     <% } %>
@@ -219,7 +205,73 @@
 
         
     </div>
+  </div>
 </div>
+<div id="break">
+  <br>
+    <h1>Localização</h1>
+    <h5>Universidade do Minho - Campus de Azurém</h5>
+    <br>
+</div>
+<div class="text-center" id="mapa">
+
+  
+   
+        <div class="container text-center">
+          <br>
+            <div id="googleMap" style="width:100%;height:400px;"></div>
+            
+            <script>
+            function myMap() {
+          var local = {lat: 41.450945, lng:  -8.2929927};
+                var map = new google.maps.Map(document.getElementById('googleMap'), {
+                  zoom: 16,
+                  center: local
+                });
+                var marker = new google.maps.Marker({
+                  position: local,
+                  map: map
+                });
+        
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            }
+            </script>
+            
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByXAIILKz4TEFmwPSB7DmOI8hRre--TKY&callback=myMap"></script>
+       
+    </div>
+    <br>
+    
+    <div class="text-center" id="info">
+    <div class="col-md-12">
+        <h5>More info</h5>
+        &nbsp
+        &nbsp
+        <div class="col-md-3">
+            <div class="contact-item"> <i class="fa fa-map-marker fa-2x"></i>
+              <p><a href="https://wego.here.com/directions/mix/mylocation/e-eyJuYW1lIjoiQXV0b01pa2EgTXVsdGltYXJjYXMsIExkYSIsImFkZHJlc3MiOiJMdWdhciBkbyBDYXJyZWdhbCwgQ2FsZGFzIERhcyBUYWlwYXMsIEJyYWdhLCBQb3J0dWdhbCIsImxhdGl0dWRlIjo0MS40ODMxNjc2NzA2OTEsImxvbmdpdHVkZSI6LTguMzUxOTE2MDc0NzUyOCwicHJvdmlkZXJOYW1lIjoiZmFjZWJvb2siLCJwcm92aWRlcklkIjoyNzU3NzE5NDI0Nzg4Njl9?map=41.48317,-8.35192,15,normal&fb_locale=pt_PT">Rua José Cardoso Vieira de Castro,<br>
+               24 4820 Fafe, Portugal</a></p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="contact-item"> <i class="fa fa-envelope-o fa-2x"></i>
+              <p>automika@sapo.pt</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="contact-item"> <i class="fa fa-phone fa-2x"></i>
+              <p>912 543 745</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="contact-item"> <i class="fa fa-facebook"></i>
+              <p><a href="https://www.facebook.com/automikamultimarcas/?ref=br_rs"> Facebook</a></p>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+
 
 
       <script>

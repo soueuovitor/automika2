@@ -25,12 +25,12 @@ router.get('/veiculos', function(request, response){
 
 });
 
-router.get('/:', function(request, response){
+router.get('/:matricula', function(request, response){
 	//console.log(request.isAuthenticated());
-	model.list(function (veiculos) {
+	model.read(request.params.matricula, function (veiculos) {
 
 	response.set("Content-Type", "text/html");
-	response.render('./front-end/main_veiculos', {
+	response.render('./front-end/main_compra', {
 		data: veiculos
 	})
 })

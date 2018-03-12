@@ -207,76 +207,59 @@
     </div>
   </div>
 </div>
-<div id="break">
+
+<section  id="mapa"class="mapa text-center" >
+  <div class="container">
+   <h1>Localização</h1>
   <br>
-    <h1>Localização</h1>
-    <h5>Universidade do Minho - Campus de Azurém</h5>
+   <div class="col-md-4  map">
+     <div class="col-md-12">
     <br>
-</div>
-<div class="text-center" id="mapa">
+        <div class="contact-item"> <i class="fa fa-map-marker fa-2x"></i>
+          <p><a href="https://wego.here.com/directions/mix/mylocation/e-eyJuYW1lIjoiQXV0b01pa2EgTXVsdGltYXJjYXMsIExkYSIsImFkZHJlc3MiOiJMdWdhciBkbyBDYXJyZWdhbCwgQ2FsZGFzIERhcyBUYWlwYXMsIEJyYWdhLCBQb3J0dWdhbCIsImxhdGl0dWRlIjo0MS40ODMxNjc2NzA2OTEsImxvbmdpdHVkZSI6LTguMzUxOTE2MDc0NzUyOCwicHJvdmlkZXJOYW1lIjoiZmFjZWJvb2siLCJwcm92aWRlcklkIjoyNzU3NzE5NDI0Nzg4Njl9?map=41.48317,-8.35192,15,normal&fb_locale=pt_PT">Rua José Cardoso Vieira de Castro,<br>
+           24 4820 Fafe, Portugal</a></p>
+        </div>
+        <div class="contact-item"> <i class="fa fa-envelope-o fa-2x"></i>
+          <p>automika@sapo.pt</p>
+        </div>
+        <div class="contact-item"> <i class="fa fa-phone fa-2x"></i>
+          <p>912 543 745</p>
+        </div>
+        <div class="contact-item"> <i class="fa fa-facebook"></i>
+          <p><a href="https://www.facebook.com/automikamultimarcas/?ref=br_rs"> Facebook</a></p>
+        </div>
+     
 
   
+  <div class="clearfix"></div>
+</div>
+</div>
+
+   <div class="col-md-8 ">
+   <div id="googleMap" style="width:100%;height:400px;margin-bottom:60px; border-radius: 10px;">
+     
+   </div>
+  </div>
+   <script>
+   function myMap() {
+ var local = {lat: 41.450945, lng:  -8.2929927};
+       var map = new google.maps.Map(document.getElementById('googleMap'), {
+         zoom: 16,
+         center: local
+       });
+       var marker = new google.maps.Marker({
+         position: local,
+         map: map
+       });
+
+   var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+   }
+   </script>
    
-        <div class="container text-center">
-          <br>
-            <div id="googleMap" style="width:100%;height:400px;"></div>
-            
-            <script>
-            function myMap() {
-          var local = {lat: 41.450945, lng:  -8.2929927};
-                var map = new google.maps.Map(document.getElementById('googleMap'), {
-                  zoom: 16,
-                  center: local
-                });
-                var marker = new google.maps.Marker({
-                  position: local,
-                  map: map
-                });
-        
-            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            }
-            </script>
-            
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByXAIILKz4TEFmwPSB7DmOI8hRre--TKY&callback=myMap"></script>
-       
-
-    <br>
-    
-    <div class="text-center" id="info">
-    <div class="col-md-12">
-        <h5>More info</h5>
-        &nbsp
-        &nbsp
-        <div class="col-md-3">
-            <div class="contact-item"> <i class="fa fa-map-marker fa-2x"></i>
-              <p><a href="https://wego.here.com/directions/mix/mylocation/e-eyJuYW1lIjoiQXV0b01pa2EgTXVsdGltYXJjYXMsIExkYSIsImFkZHJlc3MiOiJMdWdhciBkbyBDYXJyZWdhbCwgQ2FsZGFzIERhcyBUYWlwYXMsIEJyYWdhLCBQb3J0dWdhbCIsImxhdGl0dWRlIjo0MS40ODMxNjc2NzA2OTEsImxvbmdpdHVkZSI6LTguMzUxOTE2MDc0NzUyOCwicHJvdmlkZXJOYW1lIjoiZmFjZWJvb2siLCJwcm92aWRlcklkIjoyNzU3NzE5NDI0Nzg4Njl9?map=41.48317,-8.35192,15,normal&fb_locale=pt_PT">Rua José Cardoso Vieira de Castro,<br>
-               24 4820 Fafe, Portugal</a></p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="contact-item"> <i class="fa fa-envelope-o fa-2x"></i>
-              <p>automika@sapo.pt</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="contact-item"> <i class="fa fa-phone fa-2x"></i>
-              <p>912 543 745</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="contact-item"> <i class="fa fa-facebook"></i>
-              <p><a href="https://www.facebook.com/automikamultimarcas/?ref=br_rs"> Facebook</a></p>
-            </div>
-          </div>
-        </div>
-  </div>
-</div>
-</div>
-<div id="footer" class="footer text-center">
-
-footer
-
-  </div>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByXAIILKz4TEFmwPSB7DmOI8hRre--TKY&callback=myMap"></script>
+ 
+</div> 
+   </section>
 
 
 

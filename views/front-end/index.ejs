@@ -22,9 +22,54 @@
       <hr>
     </div>
     <div class="row">
-      
+        
+      <% for (var c of data) { %>
+        <% if(last < 5) { %>
+        <% if (c.ativo == 1) { %>
+          
+          
+
+            <div class="col-md-3" style="padding-right: 5px;"  data-target="/main/<%= c.matricula %>" >
+                <a href="/main/<%= c.matricula %>">
+                <div class="card">
+                        <div class="card-price">
+                        <h4 style="margin-top: 3px;font-size: 20px; text-align: center;">Preço de venda: <small><%= c.valor_venda %> €  </small></h4>
+                    </div>
+                    <img class="card-img-top" src="/public/img/<%= c.chassi %>-0.png" alt="Card image cap" style="margin-bottom:20px;">
+
+
+                    <div class="card-block">
+                        <h4 class="card-title">
+                            <%= c.marca %> <small><%= c.modelo  %></small>
+                        </h4>
+                       
+                    </div>
+                    <div class="card-block">
+                            <h5><%= c.combustivel  %></h5>
+                            
+                        </div>
+                    <ul class="list-group list-group-flush" style="display: inline;">
+                        <li class=" km" style="display: inline;margin-right: 10px;">
+                            <%= c.km %> Km </li>
+                        <li class=" cilindrada" style="display: inline;margin: 10px;">
+                            <%= c.cilindrada %> cc</li>
+                        <li class=" cavalagem" style="display: inline;margin: 10px;">
+                            <%= c.cv %> cavalos</li>
+                           
+                    </ul>
+                   
+
+                </div>
+            </a>
+
+            </div>
+            <% last = last + 1 %>
+            <% } %>
+                <% } %>
+                <% } %>
     </div>
-    <a href="./main_veiculos" class="btn btn-default page-scroll" style="float: right; margin-right: 90px;" >Ver mais veiculos</a>
+    <br>
+    <a href="/main/veiculos" class="btn btn-default page-scroll" style="float: right; " >Ver mais veiculos</a>
   </div>
 </div>
 

@@ -1,4 +1,15 @@
 <% include partials/header %>
+<style>
+
+  a {
+        color: black   ;
+          }
+  a:hover {
+        color: black   ;
+          }
+ 
+
+</style>
 
 <!-- Header -->
 <div id="intro">
@@ -45,18 +56,19 @@
                        
                     </div>
                     <div class="card-block">
-                            <h5><%= c.combustivel  %></h5>
-                            
-                        </div>
-                    <ul class="list-group list-group-flush" style="display: inline;">
-                        <li class=" km" style="display: inline;margin-right: 10px;">
-                            <%= c.km %> Km </li>
-                        <li class=" cilindrada" style="display: inline;margin: 10px;">
-                            <%= c.cilindrada %> cc</li>
-                        <li class=" cavalagem" style="display: inline;margin: 10px;">
-                            <%= c.cv %> cavalos</li>
-                           
-                    </ul>
+                      <h5> &nbsp&nbsp&nbsp<%= c.combustivel  %> &nbsp&nbsp&nbsp  <li style=" display: inline;"> <%= c.km %> Km </li> </h5>
+                      
+                  </div>
+                  
+              <ul class="list-group list-group-flush" style="display: inline;">
+                  
+                  <li class=" cilindrada" style="display: inline;margin: 10px;">
+                      <%= c.cilindrada %> cc</li>
+                  <li class=" cavalagem" style="display: inline;margin: 10px;">
+                      <%= c.cv %> cavalos</li>
+                     
+              </ul>
+             
                    
 
                 </div>
@@ -74,6 +86,81 @@
 </div>
 
 <!-- Contact Section -->
+<section  id="mapa"class="mapa text-center" style="background-color:LightGrey " >
+  <div class="container">
+
+   <h1>Localizações</h1>
+  <br>
+
+  <div class="col-md-2">
+  </div>
+  <button  id="btn-local1" type="submit" class="btn btn-submit" >local1</button>
+  <button  id="btn-local2" type="submit" class="btn btn-submit" >local2</button>
+  <button  id="btn-local3" type="submit" class="btn btn-submit" >local3</button>
+
+   <div id="local1"  class="col-md-8" style= "display: block">
+   <div id="googleMap" style="width:100%;height:400px;margin-bottom:60px; border-radius: 10px;">
+     
+   </div>
+  </div>
+  <div id="local2"  class="col-md-8"  style= "display: none">
+      <div id="googleMap2" style="width:100%;height:400px;margin-bottom:60px; border-radius: 10px;">
+        
+      </div>
+     </div>
+     <div id="local3"  class="col-md-8"  style= "display: none">
+        <div id="googleMap3" style="width:100%;height:400px;margin-bottom:60px; border-radius: 10px;">
+          
+        </div>
+       </div>
+  <div class="col-md-2">
+  </div>
+   <script>
+   function myMap() {
+ var local = {lat: 41.450945, lng:  -8.2929927};
+       var map = new google.maps.Map(document.getElementById('googleMap'), {
+         zoom: 16,
+         center: local
+       });
+       var marker = new google.maps.Marker({
+         position: local,
+         map: map
+       });
+
+   var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+   }
+   function myMap2() {
+ var local2 = {lat: 54.525961, lng:  -105.255119};
+       var map2 = new google.maps.Map(document.getElementById('googleMap2'), {
+         zoom: 16,
+         center: local2
+       });
+       var marker = new google.maps.Marker({
+         position: local2,
+         map: map2
+       });
+
+   var map=new google.maps.Map(document.getElementById("googleMap2"),mapProp);
+   }
+   function myMap3() {
+ var local3 = {lat: 39.399872, lng:  -8.224454};
+       var map3 = new google.maps.Map(document.getElementById('googleMap3'), {
+         zoom: 16,
+         center: local3
+       });
+       var marker = new google.maps.Marker({
+         position: local3,
+         map: map3
+       });
+
+   var map=new google.maps.Map(document.getElementById("googleMap3"),mapProp);
+   }
+   </script>
+   
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByXAIILKz4TEFmwPSB7DmOI8hRre--TKY&callback=myMap"></script>
+ 
+</div> 
+   </section>
 <div id="contact" class="text-center">
   <div class="container">
     <div class="section-title center">
@@ -81,23 +168,18 @@
       <br>
     </div>
     <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-3">
-        <div class="contact-item"> <i class="fa fa-map-marker fa-2x"></i>
-          <p><a href="https://wego.here.com/directions/mix/mylocation/e-eyJuYW1lIjoiQXV0b01pa2EgTXVsdGltYXJjYXMsIExkYSIsImFkZHJlc3MiOiJMdWdhciBkbyBDYXJyZWdhbCwgQ2FsZGFzIERhcyBUYWlwYXMsIEJyYWdhLCBQb3J0dWdhbCIsImxhdGl0dWRlIjo0MS40ODMxNjc2NzA2OTEsImxvbmdpdHVkZSI6LTguMzUxOTE2MDc0NzUyOCwicHJvdmlkZXJOYW1lIjoiZmFjZWJvb2siLCJwcm92aWRlcklkIjoyNzU3NzE5NDI0Nzg4Njl9?map=41.48317,-8.35192,15,normal&fb_locale=pt_PT">Rua José Cardoso Vieira de Castro,<br>
-           24 4820 Fafe, Portugal</a></p>
-        </div>
-      </div>
-      <div class="col-md-3">
+     
+      <div class="col-md-4">
         <div class="contact-item"> <i class="fa fa-envelope-o fa-2x"></i>
           <p>automika@sapo.pt</p>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="contact-item"> <i class="fa fa-phone fa-2x"></i>
           <p>912 543 745</p>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="contact-item"> <i class="fa fa-facebook"></i>
           <p><a href="https://www.facebook.com/automikamultimarcas/?ref=br_rs"> Facebook</a></p>
         </div>

@@ -234,11 +234,7 @@ hr {
 	padding: 0;
 	font-size: 13px;
 }
-#about li:before {
-	content: "✓";
-	font-weight: 600;
-	padding-right: 10px;
-	color: #e75926;
+
 }
 #about i.fa {
 	float: left;

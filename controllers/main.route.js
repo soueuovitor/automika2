@@ -5,10 +5,11 @@ const model = require('../models/veiculos.model');
 router.get('/', function(request, response){
 	//console.log(request.isAuthenticated());
 	model.list(function (veiculos) {
-
+		last =  1;
 	response.set("Content-Type", "text/html");
 	response.render('./front-end/index', {
-		data: veiculos
+		data: veiculos,
+		last: last
 	})
 })
 
@@ -18,7 +19,7 @@ router.get('/veiculos', function(request, response){
 	model.list(function (veiculos) {
 
 	response.set("Content-Type", "text/html");
-	response.render('./front-end/main_veiculos', {
+	response.render('./front-end/veiculos_main', {
 		data: veiculos
 	})
 })

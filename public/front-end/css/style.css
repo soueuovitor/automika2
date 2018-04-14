@@ -234,11 +234,7 @@ hr {
 	padding: 0;
 	font-size: 13px;
 }
-#about li:before {
-	content: "✓";
-	font-weight: 600;
-	padding-right: 10px;
-	color: #e75926;
+
 }
 #about i.fa {
 	float: left;
@@ -632,16 +628,26 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 /* Footer Section*/
 
 
-
-#footer {
-	position:fixed;
-	left:0px;
-	bottom:0px;
-	height:30px;
-	width:100%;
-	background:black;
-	color: white;
-}
+footer {
+	
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.3);
+	background-color: #222222;
+	z-index: 2000; }
+   
+	footer p {
+	  font-size: 12px;
+	  margin: 0; }
+	footer ul {
+	  margin-bottom: 0; }
+	  footer ul li a {
+		font-size: 12px;
+		color: rgba(255, 255, 255, 0.3); }
+	  
   
 
 @media (max-width: 768px) {

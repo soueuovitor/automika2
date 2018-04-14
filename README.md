@@ -32,3 +32,5 @@ Ao gravar uma venda imprime um pdf com um template a designar--.
  -verificar navbar main/veiculos
 
  -colucar combustivel
+
+ -corrigir erro do footer main_veiculos
